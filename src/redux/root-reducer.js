@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 import playerReducer from './player/player.reducer';
 
 const rootReducer = combineReducers({
-  players: playerReducer,
+  // players: playerReducer,
 });
 
 export default rootReducer;
