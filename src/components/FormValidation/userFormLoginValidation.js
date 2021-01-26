@@ -3,7 +3,7 @@ const useFormLoginValidation = (formObject) => {
 
 	//Check if the first name is empty. If it is empty, give the errors object the error String
 	if (!formObject.firstname.trim()) {
-		errors.firstname = "Firstname required!";
+		 errors.firstname= "Firstname required!";
 	} else if (formObject.firstname.length < 2) {
 		//Check if the first name is short. If it is short, give the errors object the error String
 		errors.firstname = "Firstname must be longer than one character";
