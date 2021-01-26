@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App/App";
 import "./index.css";
+import axios from "axios";
 
 //Redux
 import { Provider } from "react-redux";
@@ -15,12 +16,14 @@ import thunkMiddleware from "redux-thunk";
 // React-Router
 import { BrowserRouter } from "react-router-dom";
 
-export const store = createStore(
+const store = createStore(
 	allReducers,
 	composeWithDevTools(
 		applyMiddleware(thunkMiddleware.withExtraArgument({ axios }))
 	)
 );
+
+store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
 	<Provider store={store}>

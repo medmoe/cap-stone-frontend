@@ -2,22 +2,20 @@ const initialState = {
 	currentUser: [],
 };
 
-const currentUser = (state = initialState, action) => {
-	switch (action.payload) {
+const currentUserDucer = (state = initialState, action) => {
+	switch (action.type) {
 		case "ADD_CURRENTUSER":
-			return {
-				...state,
-				currentUser: state.currentUser.concat(action.payload),
-			};
+			return { ...state, currentUser: action.payload };
 		case "LOGOUT_CURRENTUSER":
-			return state;
+			return { ...state, currentUser: [] };
 		case "DELETE_CURRENTUSER":
-			return state;
+			return { ...state, currentUser: [] };
 		case "UPDATE_CURRENTUSER":
-			return state;
+			return { ...state, currentUser: action.payload };
+
 		default:
 			return state;
 	}
 };
 
-export default currentUser;
+export default currentUserDucer;
