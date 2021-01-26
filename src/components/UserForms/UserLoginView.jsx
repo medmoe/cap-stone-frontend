@@ -16,7 +16,7 @@ const UserLoginView = (props) => {
 		};
 		let errors = UseFormLoginValidation(userInfo);
 		if (errors == null) {
-			//login
+			props.handleIsLogin();
 		} else {
 			setErrorMessage(errors);
 		}

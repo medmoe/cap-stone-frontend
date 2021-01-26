@@ -20,8 +20,11 @@ const UserRegistrationView = (props) => {
 			password,
 		};
 		let errors = UseFormSignUpValidation(userInfo);
+		console.log(errors);
+
 		if (errors == null) {
-			//signUp
+			props.handleIsLogin();
+			console.log("HERE");
 		} else {
 			setErrorMessage(errors);
 		}

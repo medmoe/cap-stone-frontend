@@ -6,7 +6,7 @@ import React from "react";
 export const UseFormLoginValidation = (formObject) => {
 	let errors = {};
 
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
 	//Check if the email is empty. If it is empty, give the errors object the error String
 	if (!formObject.email) {

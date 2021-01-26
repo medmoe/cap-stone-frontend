@@ -3,7 +3,7 @@ import UserLoginView from "./UserLoginView";
 import UserRegistrationView from "./UserRegistrationView";
 import "./userMainFormContainer.css";
 
-const UserMainFormContainer = () => {
+const UserMainFormContainer = (props) => {
 	const [signUpForm, setSignUpForm] = useState(true);
 
 	const handleSwitchToSignUp = () => {
@@ -20,9 +20,15 @@ const UserMainFormContainer = () => {
 				<div className="formImage"></div>
 				<div className="form">
 					{signUpForm ? (
-						<UserRegistrationView handleSwitch={handleSwitchToLogin} />
+						<UserRegistrationView
+							handleSwitch={handleSwitchToLogin}
+							handleIsLogin={props.handleIsLogin}
+						/>
 					) : (
-						<UserLoginView handleSwitch={handleSwitchToSignUp} />
+						<UserLoginView
+							handleSwitch={handleSwitchToSignUp}
+							handleIsLogin={props.handleIsLogin}
+						/>
 					)}
 				</div>
 			</div>

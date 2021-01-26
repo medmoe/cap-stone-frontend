@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Test from "./Test";
 
@@ -9,14 +9,22 @@ import Routes from "../components/Routes/routes";
 import UserMainFormContainer from "../components/UserForms/userMainFormContainer.jsx";
 
 const App = () => {
+	const [isLogin, setIsLogin] = useState(false);
+
+	const handleIsLogin = () => {
+		setIsLogin(!isLogin);
+	};
+
 	return (
 		<div className="Main-Container">
-			<UserMainFormContainer />
-			{/* <UserRegistrationView />
-			<div className="Main-ContainerWithSideNav">
-				<SideNav />
-				<Routes />
-			</div> */}
+			{isLogin ? (
+				<div className="Main-ContainerWithSideNav">
+					<SideNav />
+					<Routes />
+				</div>
+			) : (
+				<UserMainFormContainer handleIsLogin={handleIsLogin} />
+			)}
 		</div>
 	);
 };
