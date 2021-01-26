@@ -1,7 +1,10 @@
 import axios from "axios";
+import { getTheUserFromDateBase } from "../../Redux/Actions/currentUser";
+import { useDispatch } from "react-redux";
+
 const useFormLoginValidation = (formObject) => {
 	let errors = {};
-
+	const dispatch = useDispatch();
 	//Check if the email is empty. If it is empty, give the errors object the error String
 	if (!formObject.email) {
 		errors.email = "Email required!";
@@ -38,6 +41,8 @@ const useFormLoginValidation = (formObject) => {
             else
                 get the reponse of the user data from database and pass it to 
                 the currentUser REDUX
+                dispatch(getTheUserFromDateBase(reponse));
+                send  use to user profile
         */
 	}
 };
