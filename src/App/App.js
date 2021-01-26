@@ -7,12 +7,13 @@ import RecipeSearchBar from "../components/RecipeSearchBar/reciepeSearchBar";
 import Routes from "../components/Routes/routes";
 import FrontPageRoutes from "../components/Routes/FrontPageRoutes.jsx";
 import UserLoginView from "../components/UserForms/UserLoginView";
-
+import UserRegistrationView from "../components/UserForms/UserRegistrationView";
 const App = () => {
 	return (
 		<div className="Main-Container">
 			{/* <FrontPageRoutes /> */}
-			<UserLoginView />
+			{/* <UserLoginView /> */}
+			<UserRegistrationView />
 			{/* <div className="Main-ContainerWithSideNav">
 				<SideNav />
 				<Routes />
