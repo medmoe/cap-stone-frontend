@@ -1,0 +1,63 @@
+.LoginPageMainContainer {
+	background: #b725aa;
+	background: -webkit-linear-gradient(top, #b725aa, #fc9510);
+	background: -moz-linear-gradient(top, #b725aa, #fc9510);
+	background: linear-gradient(to bottom, #b725aa, #fc9510);
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 450px auto 450px;
+	grid-template-rows: 150px auto 150px;
+}
+
+.LoginPageSubContainer {
+	grid-column-start: 2;
+	grid-row-start: 2;
+	background-color: white;
+	border-radius: 55px;
+	display: grid;
+	grid-template-columns: 550px auto;
+}
+
+.LoginInFormImage {
+	grid-template-columns: 1;
+	border-radius: 55px 0 0 55px;
+	background-image: url("./userFormImage//40011872-doodle-breakfast-seamless-pattern-cartoon-food-vector-background.jpg");
+}
+
+.LoginForm {
+	grid-template-columns: 2;
+	text-align: center;
+	border-radius: 0 55px 55px 0;
+	display: grid;
+	grid-template-rows: 210px auto 210px;
+}
+
+.loginFormItems {
+	grid-row-start: 2;
+}
+
+.emailContainer {
+	margin-top: 10px;
+}
+.emailContainer label,
+.passwordContainer label {
+	margin-right: 10px;
+}
+
+.passwordContainer label {
+	margin-right: 5px;
+}
+
+.emailContainer input,
+.passwordContainer input {
+	margin-right: 30px;
+	padding: 0.5rem;
+	border-radius: 15px;
+	border: 1px solid gray;
+	outline-style: none;
+}
+
+.passwordContainer input {
+	margin-top: 15px;
+	margin-right: 50px;
+}
