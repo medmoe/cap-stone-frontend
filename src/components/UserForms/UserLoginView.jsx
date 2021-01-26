@@ -1,49 +1,26 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { UseFormLoginValidation } from "../FormValidation/userFormLoginValidation";
 import "./UserLoginView.css";
 
-const UserLoginView = () => {
+const UserLoginView = (props) => {
 	const [email, setemail] = useState("");
 	const [password, setpassword] = useState("");
 	const [errorMessage, setErrorMessage] = useState({});
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	let userLogin = {
-	// 		email,
-	// 		password,
-	// 	};
-
-	// 	const isValid = UseFormLoginValidation(userLogin);
-
-	// 	let isThereAnyError = false; //This variable help us keep track whether or not the errors object is empty
-
-	// 	for (let element in isValid) {
-	// 		if (isValid.hasOwnProperty(element)) {
-	// 			//This will loop through the error object to find whether or not it is empty
-	// 			isThereAnyError = true;
-	// 		}
-	// 	}
-
-	// 	if (isThereAnyError) {
-	// 		setErrorMessage(isValid);
-	// 	} else {
-	// 		setemail("");
-	// 		setpassword("");
-	// 		setErrorMessage({});
-	// 		console.log("it works");
-	// 		//do an axios post call to checkever or not the user is in database
-	// 		//get a response back from the database
-	// 		/*
-	//             if(the reponse saying the user does not exist)
-	//                 errors.usernotfound = "The user does not exist in the database"
-	//             else
-	//                 get the reponse of the user data from database and pass it to
-	//                 the currentUser REDUX
-	//                 dispatch(getTheUserFromDateBase(reponse));
-	//                 send  use to user profile
-	//         */
-	// 	}
-	// };
+		let userInfo = {
+			email,
+			password,
+		};
+		let errors = UseFormLoginValidation(userInfo);
+		if (errors == null) {
+			//login
+		} else {
+			setErrorMessage(errors);
+		}
+	};
 
 	const handleChange = (e) => {
 		let { name } = e.target;
@@ -61,40 +38,45 @@ const UserLoginView = () => {
 		}
 	};
 
+	const handleSwitchToSignUp = () => {
+		props.handleSwitch();
+	};
+
 	return (
-		<div className="LoginPageMainContainer">
-			<div className="LoginPageSubContainer">
-				<div className="LoginInFormImage"></div>
-				<form className="LoginForm">
-					<div className="loginFormItems">
-						<h1>Login In</h1>
-						<div className="emailContainer">
-							<label for="email"> Email:</label>
-							<input
-								type="text"
-								key="email"
-								name="email"
-								onChange={handleChange}
-								value={email}
-							></input>
-							<div>{errorMessage.email}</div>
-						</div>
-
-						<div className="passwordContainer">
-							<label for="password"> Password:</label>
-							<input
-								type="password"
-								id="password"
-								name="password"
-								onChange={handleChange}
-								value={password}
-							></input>
-							<div>{errorMessage.password}</div>
-						</div>
-
-						<button>Submit</button>
+		<div className="LoginForm">
+			<form onSubmit={handleSubmit}>
+				<div className="loginFormItems">
+					<h1>Login In</h1>
+					<div className="emailContainer">
+						<label for="email"> Email:</label>
+						<input
+							type="text"
+							key="email"
+							name="email"
+							onChange={handleChange}
+							value={email}
+						></input>
+						<div>{errorMessage.email}</div>
 					</div>
-				</form>
+
+					<div className="passwordContainer">
+						<label for="password"> Password:</label>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							onChange={handleChange}
+							value={password}
+						></input>
+						<div>{errorMessage.password}</div>
+					</div>
+					<button>Submit</button>
+				</div>
+			</form>
+
+			<div className="toSignUpForm">
+				<h2>Don't have an account?</h2>
+				<button onClick={handleSwitchToSignUp}>Sign Up</button>
 			</div>
 		</div>
 	);

@@ -1,26 +1,10 @@
 import axios from "axios";
 import { getTheUserFromDateBase } from "../../Redux/Actions/currentUser";
 import { useDispatch } from "react-redux";
+import React from "react";
 
-const useFormLoginValidation = (formObject) => {
+export const UseFormLoginValidation = (formObject) => {
 	let errors = {};
-
-
-	//Check if the first name is empty. If it is empty, give the errors object the error String
-	if (!formObject.firstname.trim()) {
-		 errors.firstname= "Firstname required!";
-	} else if (formObject.firstname.length < 2) {
-		//Check if the first name is short. If it is short, give the errors object the error String
-		errors.firstname = "Firstname must be longer than one character";
-	}
-
-	//Check if the first name is empty. If it is empty, give the errors object the error String
-	if (!formObject.lastname.trim()) {
-		errors.lastname = "Lastname required!";
-	} else if (formObject.lastname.length < 2) {
-		//Check if the last name is short. If it is short, give the errors object the error String
-		errors.firstname = "Lastname must be longer than one character";
-	}
 
 	const dispatch = useDispatch();
 
@@ -65,5 +49,3 @@ const useFormLoginValidation = (formObject) => {
         */
 	}
 };
-
-export default useFormLoginValidation;

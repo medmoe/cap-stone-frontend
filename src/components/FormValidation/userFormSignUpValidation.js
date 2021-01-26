@@ -1,4 +1,4 @@
-const useFormSignUpValidation = (formObject) => {
+export const UseFormSignUpValidation = (formObject) => {
 	let errors = {};
 
 	//Check if the first name is empty. If it is empty, give the errors object the error String
@@ -35,5 +35,3 @@ const useFormSignUpValidation = (formObject) => {
 
 	return errors;
 };
-
-export default useFormSignUpValidation;

@@ -1,0 +1,38 @@
+.UserFormMainContainer {
+	background: #b725aa;
+	background: -webkit-linear-gradient(top, #b725aa, #fc9510);
+	background: -moz-linear-gradient(top, #b725aa, #fc9510);
+	background: linear-gradient(to bottom, #b725aa, #fc9510);
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 450px auto 450px;
+	grid-template-rows: 150px auto 150px;
+}
+
+.UserFormSubContainer {
+	grid-column-start: 2;
+	grid-row-start: 2;
+	background-color: white;
+	border-radius: 55px;
+	display: grid;
+	grid-template-columns: 550px auto;
+
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+		0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+		0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+		0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.formImage {
+	grid-template-columns: 1;
+	border-radius: 55px 0 0 55px;
+	background-image: url("./userFormImage//40011872-doodle-breakfast-seamless-pattern-cartoon-food-vector-background.jpg");
+}
+
+.form {
+	grid-template-columns: 2;
+	text-align: center;
+	border-radius: 0 55px 55px 0;
+	display: grid;
+	grid-template-rows: 210px auto 210px;
+}
