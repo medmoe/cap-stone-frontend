@@ -1,0 +1,45 @@
+.RecipeSearchBarMainContainer {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: 70px auto 70px;
+
+	background: #6809fa;
+	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
+	background: -moz-linear-gradient(top right, #6809fa, #da5c72);
+	background: linear-gradient(to bottom left, #6809fa, #da5c72);
+}
+
+.RecipeSearchBarMiddleContainer {
+	grid-row-start: 2;
+	border-radius: 55px;
+	width: 95%;
+	margin-left: 50px;
+	background-color: white;
+	box-shadow: 0px 0px 28px 3px #585858;
+	display: grid;
+	grid-template-columns: 500px auto 500px;
+}
+
+.barContainer {
+	grid-column-start: 2;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+}
+
+.theBar {
+	grid-row-start: 2;
+	text-align: center;
+}
+
+.barHeader {
+	margin-top: 20px;
+}
+
+.searchBar {
+	margin-top: 15px;
+	width: 80%;
+	padding: 2rem;
+	border-radius: 50px;
+	outline-style: none;
+	font-size: 20px;
+}

@@ -1,8 +1,10 @@
 import React from "react";
 import "./App.css";
 import Test from "./Test";
-import UserProfile from "../components/Display/userProfile.jsx";
+
 import SideNav from "../components/SideNav/SideNavBar.jsx";
+import RecipeSearchBar from "../components/RecipeSearchBar/reciepeSearchBar";
+import Routes from "../components/Routes/routes";
 
 const App = () => {
 	return (
@@ -10,7 +12,9 @@ const App = () => {
 			{/* <LoginPage/> */}
 			<div className="Main-ContainerWithSideNav">
 				<SideNav />
-				<UserProfile />
+				<Routes />
+				{/* <UserProfile /> */}
+				{/* <RecipeSearchBar /> */}
 			</div>
 		</div>
 	);
