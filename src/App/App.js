@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import './App.css';
-import RoutesContainer from '../components/AllPlayers/routes/RoutesContainer';
-//import UserRegistrationView from '../components/AllPlayers/views/UserRegistrationView';
-import UserLoginView from '../components/AllPlayers/views/UserLoginView';
+import React from "react";
+import "./App.css";
+import Test from "./Test";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="app">
-        <header className="app-header">
-          {/* <UserLoginView /> */}
-          <RoutesContainer />
-        </header>
-      </div>
-    );
-  }
-}
+import SideNav from "../components/SideNav/SideNavBar.jsx";
+import RecipeSearchBar from "../components/RecipeSearchBar/reciepeSearchBar";
+import Routes from "../components/Routes/routes";
+
+const App = () => {
+	return (
+		<div className="Main-Container">
+			{/* <LoginPage/> */}
+			<div className="Main-ContainerWithSideNav">
+				<SideNav />
+				<Routes />
+				{/* <UserProfile /> */}
+				{/* <RecipeSearchBar /> */}
+			</div>
+		</div>
+	);
+};
 
 export default App;

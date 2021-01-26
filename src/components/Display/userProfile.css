@@ -1,0 +1,61 @@
+.userProfileMainContainer {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: 70px auto 70px;
+
+	background: #6809fa;
+	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
+	background: -moz-linear-gradient(top right, #6809fa, #da5c72);
+	background: linear-gradient(to bottom left, #6809fa, #da5c72);
+}
+
+.userProfileInformationContainer {
+	grid-row-start: 2;
+	border-radius: 55px;
+	width: 95%;
+	margin-left: 50px;
+	background-color: white;
+	box-shadow: 0px 0px 28px 3px #585858;
+	display: grid;
+	grid-template-columns: 350px auto;
+}
+
+.userProfileUser {
+	grid-column-start: 1;
+	border-right: 1px solid whitesmoke;
+	border-radius: 55px 0 0 55px;
+	text-align: center;
+}
+
+.userProfileImage {
+	margin-top: 50px;
+	margin-left: 80px;
+	border-radius: 500px;
+	width: 200px;
+	height: 200px;
+	background-color: gray;
+}
+
+.userProfileUserNameContainer {
+	margin-top: 30px;
+}
+
+.userProfileUserNameContainer h2 {
+	margin-top: 10px;
+	font-size: 1rem;
+}
+
+.userProfileData {
+	border-radius: 0 55px 55px 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.items {
+	border: 1px solid rgba(120, 120, 120, 0.5);
+	margin-top: 35px;
+	margin-left: 50px;
+	border-radius: 20px;
+	height: 90%;
+	width: 80%;
+}
