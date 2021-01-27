@@ -14,33 +14,34 @@ class RecipeSearchBar extends Component {
 			recipes: []
 		}
 
-		this.SearchRecipes = this.SearchRecipes.bind(this);
+
 		this.UpdateQuery = this.UpdateQuery.bind(this);
+		this.HandleSubmit = this.HandleSubmit.bind(this);
 	}
 		UpdateQuery(e){
 			this.setState({searchQuery: e.target.value});
 		}
 		
-		SearchRecipes(){
-			axios.get('', {
-				params:{
+		HandleSubmit(e){
+			e.preventDefault();
 
-				}
-			})
-			.then((results) =>{
-				console.log(results);
+			axios.get(`http://localhost:8080/api/recipes/${this.state.searchQuery}`)
+				.then(results =>{
+				console.log(results.data);
 				console.log(this.state.searchQuery)
-			})
-			.catch((error) => console.log(error));
+				})
+				.catch((error) => console.log(error));
+			
 		}
 	
 	
 	
 	render(){
+		console.log(this.state.searchQuery)
 	return (
 		<div className="RecipeSearchBarMainContainer">
 			<div className="RecipeSearchBarMiddleContainer">
-				<form className="barContainer">
+				<form className="barContainer" onSubmit = {this.HandleSubmit}>
 					<div className="theBar">
 						<div className="barHeader">
 							<h1>Let's find your desired recipe</h1>
@@ -53,6 +54,7 @@ class RecipeSearchBar extends Component {
 							onChange = {this.UpdateQuery}
 							value = {this.state.searchQuery}
 						></input>
+						<button>Search</button>
 					</div>
 				</form>
 			</div>

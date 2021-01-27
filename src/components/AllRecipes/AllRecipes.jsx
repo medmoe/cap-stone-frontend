@@ -39,6 +39,7 @@ class AllRecipes extends Component {
                             key = {index}
                             recipeName = {dish.name}
                             recipeDescription = {dish.description}
+                            recipeID = {dish.id}
 
                         />
                     )

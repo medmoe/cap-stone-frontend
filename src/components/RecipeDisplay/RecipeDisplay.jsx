@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './RecipeDisplay.css';
 
-const RecipeDisplay = () => {
+class RecipeDisplay extends Component {
+    
 
+    render(){
     return(
         <div className = "RecipeMainContainer">
             <div className = "RecipeNameMain">
-                <h1 class = "RecipeNameText">SOME DISH NAME</h1>
+                <h1 class = "RecipeNameText">recipe name</h1>
             </div>
 
             <div className = "RecipeImageMain">
@@ -55,6 +57,7 @@ const RecipeDisplay = () => {
         </div>
 
     )
+    }
 }
 
 export default RecipeDisplay;

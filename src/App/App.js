@@ -3,7 +3,6 @@ import "./App.css";
 import Test from "./Test";
 
 import SideNav from "../components/SideNav/SideNavBar.jsx";
-import RecipeSearchBar from "../components/RecipeSearchBar/reciepeSearchBar";
 import Routes from "../components/Routes/routes";
 
 const App = () => {
