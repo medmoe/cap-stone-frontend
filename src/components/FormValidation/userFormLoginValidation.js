@@ -20,10 +20,12 @@ export const UseFormLoginValidation = async (formObject) => {
 	}
 
 	if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+		console.log("here");
 		const x = await axios.post(
-			"http://localhost:8080/api/users/register",
+			"http://localhost:8080/api/users/login",
 			formObject
 		);
+		console.log(x);
 		return x;
 	} else {
 		return errors;

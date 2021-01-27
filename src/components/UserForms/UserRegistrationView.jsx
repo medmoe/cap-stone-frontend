@@ -3,13 +3,13 @@ import React from "react";
 import "./UserRegistrationView.css";
 import { UseFormSignUpValidation } from "../FormValidation/userFormSignUpValidation";
 import FormSignUpHandler from "../FormValidation/FormSignUpHandler";
+import { Link } from "react-router-dom";
 
 const UserRegistrationView = (props) => {
 	const { handleChange, formInfo, handleSubmit, errors } = FormSignUpHandler(
 		UseFormSignUpValidation,
 		props.handleIsLogin
 	);
-
 	const handleSwitch = () => {
 		props.handleSwitch();
 	};
@@ -70,7 +70,7 @@ const UserRegistrationView = (props) => {
 						<div>{errors.password}</div>
 					</div>
 
-					<button className="loginButton">Sign Up</button>
+					<button className="loginButton">sign SUp</button>
 				</div>
 			</form>
 			<div className="toLoginForm">

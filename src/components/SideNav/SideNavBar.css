@@ -3,8 +3,24 @@
 	flex-direction: column;
 	text-align: center;
 	justify-content: space-between;
-	background-color: #b589d6;
-	border: none;
+	background: rgba(211, 1, 192, 0.1);
+	background: -webkit-radial-gradient(
+		right,
+		rgba(211, 1, 192, 0.11),
+		rgba(115, 79, 159, 0.1)
+	);
+	background: -moz-radial-gradient(
+		right,
+		rgba(211, 1, 192, 0.5),
+		rgba(115, 79, 159, 0.5)
+	);
+	background: radial-gradient(
+		to left,
+		rgba(211, 1, 192, 0.1),
+		rgba(115, 79, 159, 0.1)
+	);
+
+	border-radius: 0 150px 150px 0;
 }
 
 /* .Main-sidebar-container-btn {

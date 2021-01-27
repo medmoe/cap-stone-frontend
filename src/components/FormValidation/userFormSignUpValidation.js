@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const UseFormSignUpValidation = async (formObject) => {
 	let error = {};
 	//Check if the first name is empty. If it is empty, give the errors object the error String
@@ -38,6 +39,8 @@ export const UseFormSignUpValidation = async (formObject) => {
 			"http://localhost:8080/api/users/register",
 			formObject
 		);
+
+		console.log(x.data);
 	} else {
 		return error;
 	}
