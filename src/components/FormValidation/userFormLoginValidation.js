@@ -1,28 +1,7 @@
 import axios from "axios";
-import { getTheUserFromDateBase } from "../../Redux/Actions/currentUser";
-import { useDispatch } from "react-redux";
 
-const useFormLoginValidation = (formObject) => {
+export const UseFormLoginValidation = async (formObject) => {
 	let errors = {};
-
-
-	//Check if the first name is empty. If it is empty, give the errors object the error String
-	if (!formObject.firstname.trim()) {
-		 errors.firstname= "Firstname required!";
-	} else if (formObject.firstname.length < 2) {
-		//Check if the first name is short. If it is short, give the errors object the error String
-		errors.firstname = "Firstname must be longer than one character";
-	}
-
-	//Check if the first name is empty. If it is empty, give the errors object the error String
-	if (!formObject.lastname.trim()) {
-		errors.lastname = "Lastname required!";
-	} else if (formObject.lastname.length < 2) {
-		//Check if the last name is short. If it is short, give the errors object the error String
-		errors.firstname = "Lastname must be longer than one character";
-	}
-
-	const dispatch = useDispatch();
 
 	//Check if the email is empty. If it is empty, give the errors object the error String
 	if (!formObject.email) {
@@ -40,30 +19,13 @@ const useFormLoginValidation = (formObject) => {
 		errors.password = "Password need to be longer than 6 characters";
 	}
 
-	let isThereAnyError = false; //This variable help us keep track whether or not the errors object is empty
-
-	for (let element in errors) {
-		if (errors.hasOwnProperty(element)) {
-			//This will loop through the error object to find whether or not it is empty
-			isThereAnyError = true;
-		}
-	}
-
-	if (isThereAnyError) {
-		return errors;
+	if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+		const x = await axios.post(
+			"http://localhost:8080/api/users/register",
+			formObject
+		);
+		return x;
 	} else {
-		//do an axios post call to checkever or not the user is in database
-		//get a response back from the database
-		/*
-            if(the reponse saying the user does not exist)
-                errors.usernotfound = "The user does not exist in the database"
-            else
-                get the reponse of the user data from database and pass it to 
-                the currentUser REDUX
-                dispatch(getTheUserFromDateBase(reponse));
-                send  use to user profile
-        */
+		return errors;
 	}
 };
-
-export default useFormLoginValidation;

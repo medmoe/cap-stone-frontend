@@ -1,0 +1,64 @@
+.LoginForm {
+	grid-row-start: 2;
+	font-family: "Roboto Mono", monospace;
+}
+
+.theForm {
+	margin-top: 60px;
+	text-align: center;
+}
+
+.input-box {
+	padding: 0.4rem;
+	border-radius: 20px;
+	border: 1px solid#C0C0C0;
+	outline-style: none;
+	margin-top: 15px;
+	width: 230px;
+}
+
+.emailinput,
+.passwordinput {
+	padding: 0.4rem;
+	border-radius: 20px;
+	border: 1px solid#C0C0C0;
+	outline-style: none;
+	margin-top: 15px;
+	width: 230px;
+}
+
+.loginEmailInput {
+	margin-right: 45px;
+}
+
+.loginPasswordInput {
+	margin-right: 70px;
+}
+
+.buttonContainer {
+	margin-top: 10px;
+}
+
+.loginButton {
+	padding: 0.5rem;
+}
+
+.toSignUpForm {
+	text-align: center;
+	font-size: 8px;
+	display: flex;
+	margin-top: 15px;
+	margin-left: 130px;
+}
+
+.toSignUpForms {
+	margin-left: 10px;
+	background-color: white;
+
+	border: none;
+	outline-style: none;
+	cursor: pointer;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: "Roboto Mono", monospace;
+}
