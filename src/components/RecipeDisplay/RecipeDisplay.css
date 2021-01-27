@@ -1,0 +1,64 @@
+.RecipeMainContainer{
+    background: #6809fa;
+	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
+	background: -moz-linear-gradient(top right, #6809fa, #da5c72);
+	background: linear-gradient(to bottom left, #6809fa, #da5c72);
+
+    display: block;
+
+    height: 100%;
+}
+
+.RecipeNameText{
+    font-size: 75px;
+    color: white;
+    text-align: center;
+}
+
+.RecipeImageMain{
+    border:3px solid black;
+    width: 30%;
+    height: 30%;
+    margin: auto;
+
+}
+
+.RecipeDescriptionMain{
+    border:3px solid black;
+    width: 82%;
+    margin-left: auto;
+}
+
+.RecipeTextMain{
+    width: 100%;
+    text-align: center;
+
+}
+
+.RecipeDescriptionText{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.RecipeIngredientsMain{
+    width: 18%;
+    border: 3px solid black;
+    height: 60%;
+    margin-top: -13%;
+
+}
+
+.RecipeIngredientsText{
+    font-size: medium;
+}
+
+.RecipeInstructionsMain{
+    width: 82%;
+    border: 3px solid black;
+    display: flex;
+    /* margin-top: -58%;*/
+    margin-left: auto;
+    margin-top: -24%;
+    height: auto;
+}

@@ -1,0 +1,56 @@
+.AllRecipesContainer{
+    background: #6809fa;
+	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
+	background: -moz-linear-gradient(top right, #6809fa, #da5c72);
+	background: linear-gradient(to bottom left, #6809fa, #da5c72);
+
+    display: block;
+
+    height: 100%;
+}
+
+.RecipeMainText{
+    font-size: 60px;
+    
+}
+
+.RecipeContainer{
+    border: 3px solid black;
+    height: 15%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ImageContainer{
+    height: 100%;
+    border: 3px solid black;
+    width: 20%;
+    margin-top: -16%;
+
+}
+
+.food-image{
+
+}
+
+.DishNameContainer{
+    height: 25%;
+    border: 3px solid black;
+    width: 80%;
+    margin-left: auto;
+
+}
+
+.Dish-Name{
+
+}
+
+.DishDescContainer{
+    height: 72%;
+    border: 3px solid black;
+    width: 80%;
+    margin-left: auto;
+    margin-top: 1%;
+
+}

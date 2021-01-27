@@ -13,23 +13,43 @@ const SideNavBar = () => {
 		history.push("/searchbar");
 	};
 
+	const toAllRecipes = () => {
+		history.push("/allrecipes")
+	}
+
 	return (
 		<div className="Main-sidebar-container">
 			<div className="Main-sidebar-container-btn">
 				<h1>Logo</h1>
 			</div>
 
+			{/* <div>
+				<form>
+					<Link to = "/allrecipes">All Recipes</Link>
+					<br></br>
+				</form>
+			</div> */}
+
+
+
+
 			<div className="Main-sidebar-container-btn Main-sidebar-container-group-btn">
 				<button className="Sidebar-btn" onClick={toUserProfile}>
 					Dashboard
 				</button>
 
+				<button className = "Sidebar-btn" onClick = {toAllRecipes}>
+					All Recipes
+				</button>
+
 				<button className="Sidebar-btn" onClick={toSearchBar}>
 					Search
 				</button>
+
+				<button className="Sidebar-btn">Logout</button>
 			</div>
 			<div className="Main-sidebar-container-btn">
-				<button className="Sidebar-btn">Logout</button>
+				
 			</div>
 		</div>
 	);
