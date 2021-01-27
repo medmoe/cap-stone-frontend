@@ -38,7 +38,6 @@ export const UseFormSignUpValidation = async (formObject) => {
 			"http://localhost:8080/api/users/register",
 			formObject
 		);
-		return x;
 	} else {
 		return error;
 	}

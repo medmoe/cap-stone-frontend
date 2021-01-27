@@ -15,12 +15,13 @@ const UserLoginView = (props) => {
 
 	return (
 		<div className="LoginForm">
-			<form onSubmit={handleSubmit}>
+			<form className="theForm" onSubmit={handleSubmit}>
 				<div className="loginFormItems">
 					<h1>Login In</h1>
 					<div className="emailContainer">
 						<label for="email"> Email:</label>
 						<input
+							className="emailinput loginEmailInput"
 							type="text"
 							key="email"
 							name="email"
@@ -33,6 +34,7 @@ const UserLoginView = (props) => {
 					<div className="passwordContainer">
 						<label for="password"> Password:</label>
 						<input
+							className="passwordinput loginPasswordInput"
 							type="password"
 							id="password"
 							name="password"
@@ -41,13 +43,17 @@ const UserLoginView = (props) => {
 						></input>
 						<div>{errors.password}</div>
 					</div>
-					<button>Submit</button>
+					<div className="buttonContainer">
+						<button className="loginButton">Login</button>
+					</div>
 				</div>
 			</form>
 
 			<div className="toSignUpForm">
 				<h2>Don't have an account?</h2>
-				<button onClick={handleSwitchToSignUp}>Sign Up</button>
+				<button className="toSignUpForms" onClick={handleSwitchToSignUp}>
+					Sign Up
+				</button>
 			</div>
 		</div>
 	);

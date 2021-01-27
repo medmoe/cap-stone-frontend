@@ -30,7 +30,6 @@ const UserRegistrationView = (props) => {
 							onChange={handleChange}
 							value={formInfo.firstName}
 						></input>
-
 						<div>{errors.firstname}</div>
 
 						<label for="lastname"> Last Name:</label>

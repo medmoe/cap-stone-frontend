@@ -1,6 +1,7 @@
 import React from "react";
 import "./SideNavBar.css";
 import { Link, useHistory } from "react-router-dom";
+import "../../fontawesome-free-5.15.2-web/css/all.css";
 
 const SideNavBar = () => {
 	const history = useHistory();
@@ -27,6 +28,8 @@ const SideNavBar = () => {
 				<button className="Sidebar-btn" onClick={toSearchBar}>
 					Search
 				</button>
+
+				{/* <i class="fas fa-search"></i> */}
 			</div>
 			<div className="Main-sidebar-container-btn">
 				<button className="Sidebar-btn">Logout</button>

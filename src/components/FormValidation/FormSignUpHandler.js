@@ -25,13 +25,13 @@ const FormSignUpHandler = (UseFormSignUpValidation, handleIsLogin) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let recieveError = await UseFormSignUpValidation(formInfo);
-		setErrors(recieveError);
-		if (
-			Object.keys(recieveError).length === 0 &&
-			recieveError.constructor === Object
-		) {
+
+		if (recieveError === undefined) {
 			dispatch(addCurrentUserToStateAction(formInfo));
+			console.log("here");
 			handleIsLogin(true);
+		} else {
+			setErrors(recieveError);
 		}
 	};
 
