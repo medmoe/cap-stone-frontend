@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import "./App.css";
 import Test from "./Test";
 
@@ -10,8 +11,8 @@ import UserMainFormContainer from "../components/UserForms/userMainFormContainer
 
 const App = () => {
 	const [isLogin, setIsLogin] = useState(false);
-
 	const handleIsLogin = () => {
+		console.log("clicked");
 		setIsLogin(!isLogin);
 	};
 

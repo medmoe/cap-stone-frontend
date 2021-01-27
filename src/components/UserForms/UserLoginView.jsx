@@ -1,42 +1,13 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 import { UseFormLoginValidation } from "../FormValidation/userFormLoginValidation";
 import "./UserLoginView.css";
+import FormSignInHandler from "../FormValidation/FormSignInHandler";
 
 const UserLoginView = (props) => {
-	const [email, setemail] = useState("");
-	const [password, setpassword] = useState("");
-	const [errorMessage, setErrorMessage] = useState({});
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
-		let userInfo = {
-			email,
-			password,
-		};
-		let errors = UseFormLoginValidation(userInfo);
-		if (errors == null) {
-			props.handleIsLogin();
-		} else {
-			setErrorMessage(errors);
-		}
-	};
-
-	const handleChange = (e) => {
-		let { name } = e.target;
-		let { value } = e.target;
-
-		switch (name) {
-			case "email":
-				setemail(value);
-				break;
-			case "password":
-				setpassword(value);
-				break;
-			default:
-				break;
-		}
-	};
+	const { handleChange, formInfo, handleSubmit, errors } = FormSignInHandler(
+		UseFormLoginValidation,
+		props.handleIsLogin
+	);
 
 	const handleSwitchToSignUp = () => {
 		props.handleSwitch();
@@ -54,9 +25,9 @@ const UserLoginView = (props) => {
 							key="email"
 							name="email"
 							onChange={handleChange}
-							value={email}
+							value={formInfo.email}
 						></input>
-						<div>{errorMessage.email}</div>
+						<div>{errors.email}</div>
 					</div>
 
 					<div className="passwordContainer">
@@ -66,9 +37,9 @@ const UserLoginView = (props) => {
 							id="password"
 							name="password"
 							onChange={handleChange}
-							value={password}
+							value={formInfo.password}
 						></input>
-						<div>{errorMessage.password}</div>
+						<div>{errors.password}</div>
 					</div>
 					<button>Submit</button>
 				</div>

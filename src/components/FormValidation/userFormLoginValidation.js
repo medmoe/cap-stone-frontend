@@ -1,12 +1,7 @@
 import axios from "axios";
-import { getTheUserFromDateBase } from "../../Redux/Actions/currentUser";
-import { useDispatch } from "react-redux";
-import React from "react";
 
-export const UseFormLoginValidation = (formObject) => {
+export const UseFormLoginValidation = async (formObject) => {
 	let errors = {};
-
-	// const dispatch = useDispatch();
 
 	//Check if the email is empty. If it is empty, give the errors object the error String
 	if (!formObject.email) {
@@ -24,28 +19,13 @@ export const UseFormLoginValidation = (formObject) => {
 		errors.password = "Password need to be longer than 6 characters";
 	}
 
-	let isThereAnyError = false; //This variable help us keep track whether or not the errors object is empty
-
-	for (let element in errors) {
-		if (errors.hasOwnProperty(element)) {
-			//This will loop through the error object to find whether or not it is empty
-			isThereAnyError = true;
-		}
-	}
-
-	if (isThereAnyError) {
-		return errors;
+	if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+		const x = await axios.post(
+			"http://localhost:8080/api/users/register",
+			formObject
+		);
+		return x;
 	} else {
-		//do an axios post call to checkever or not the user is in database
-		//get a response back from the database
-		/*
-            if(the reponse saying the user does not exist)
-                errors.usernotfound = "The user does not exist in the database"
-            else
-                get the reponse of the user data from database and pass it to 
-                the currentUser REDUX
-                dispatch(getTheUserFromDateBase(reponse));
-                send  use to user profile
-        */
+		return errors;
 	}
 };

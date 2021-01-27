@@ -1,56 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import "./UserRegistrationView.css";
 import { UseFormSignUpValidation } from "../FormValidation/userFormSignUpValidation";
+import FormSignUpHandler from "../FormValidation/FormSignUpHandler";
 
 const UserRegistrationView = (props) => {
-	const [firstname, setfirstname] = useState("");
-	const [lastname, setlastname] = useState("");
-	const [email, setemail] = useState("");
-	const [password, setpassword] = useState("");
-	const [errorMessage, setErrorMessage] = useState({});
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
-		let userInfo = {
-			firstname,
-			lastname,
-			email,
-			password,
-		};
-		let errors = UseFormSignUpValidation(userInfo);
-		console.log(errors);
-
-		if (errors == null) {
-			props.handleIsLogin();
-			console.log("HERE");
-		} else {
-			setErrorMessage(errors);
-		}
-	};
-
-	const handleChange = (e) => {
-		let { name } = e.target;
-		let { value } = e.target;
-
-		switch (name) {
-			case "firstname":
-				setfirstname(value);
-				break;
-			case "lastname":
-				setlastname(value);
-				break;
-			case "email":
-				setemail(value);
-				break;
-			case "password":
-				setpassword(value);
-				break;
-			default:
-				break;
-		}
-	};
+	const { handleChange, formInfo, handleSubmit, errors } = FormSignUpHandler(
+		UseFormSignUpValidation,
+		props.handleIsLogin
+	);
 
 	const handleSwitch = () => {
 		props.handleSwitch();
@@ -67,21 +25,21 @@ const UserRegistrationView = (props) => {
 						<input
 							type="text"
 							key="firstname"
-							name="firstname"
+							name="firstName"
 							onChange={handleChange}
-							value={firstname}
+							value={formInfo.firstName}
 						></input>
-						<div>{errorMessage.firstname}</div>
+						<div>{errors.firstname}</div>
 
 						<label for="lastname"> Last Name:</label>
 						<input
 							type="text"
 							key="lastname"
-							name="lastname"
+							name="lastName"
 							onChange={handleChange}
-							value={lastname}
+							value={formInfo.lastName}
 						></input>
-						<div>{errorMessage.lastname}</div>
+						<div>{errors.lastname}</div>
 					</div>
 
 					<div className="emailContainer">
@@ -91,9 +49,9 @@ const UserRegistrationView = (props) => {
 							key="email"
 							name="email"
 							onChange={handleChange}
-							value={email}
+							value={formInfo.email}
 						></input>
-						<div>{errorMessage.email}</div>
+						<div>{errors.email}</div>
 					</div>
 
 					<div className="passwordContainer">
@@ -103,9 +61,9 @@ const UserRegistrationView = (props) => {
 							id="password"
 							name="password"
 							onChange={handleChange}
-							value={password}
+							value={formInfo.password}
 						></input>
-						<div>{errorMessage.password}</div>
+						<div>{errors.password}</div>
 					</div>
 
 					<button>Submit</button>
