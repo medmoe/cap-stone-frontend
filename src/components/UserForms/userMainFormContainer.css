@@ -26,13 +26,14 @@
 .formImage {
 	grid-template-columns: 1;
 	border-radius: 55px 0 0 55px;
-	background-image: url("./userFormImage//40011872-doodle-breakfast-seamless-pattern-cartoon-food-vector-background.jpg");
+	background-image: url("./userFormImage//02153f61-2642-440b-af49-54f8dddab951_rw_1200.jpg");
+	background-position: center;
 }
 
 .form {
 	grid-template-columns: 2;
-	text-align: center;
+	/* text-align: center; */
 	border-radius: 0 55px 55px 0;
 	display: grid;
-	grid-template-rows: 210px auto 210px;
+	grid-template-rows: 170px auto 170px;
 }

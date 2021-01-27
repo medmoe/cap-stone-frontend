@@ -1,3 +1,67 @@
 .signUpForm {
 	grid-row-start: 2;
+	font-family: "Roboto Mono", monospace;
+	font-weight: bold;
+}
+
+.theFormLogin {
+	text-align: center;
+}
+
+.input-box {
+	padding: 0.4rem;
+	border-radius: 20px;
+	border: 1px solid#C0C0C0;
+	outline-style: none;
+	margin-top: 15px;
+	width: 230px;
+}
+
+.nameContainer label {
+	margin-right: 5px;
+}
+
+.firstname {
+	margin-right: 90px;
+}
+
+.lastname {
+	margin-right: 80px;
+}
+
+.email {
+	margin-right: 35px;
+}
+
+.password {
+	margin-right: 65px;
+}
+
+.loginButton {
+	margin-top: 15px;
+
+	border: none;
+	padding: 0.5rem;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.toLoginForm {
+	display: flex;
+	text-align: center;
+	font-size: 8px;
+	margin-top: 15px;
+	margin-left: 140px;
+}
+
+.loginFormButton {
+	margin-left: 10px;
+	background-color: white;
+
+	border: none;
+	outline-style: none;
+	cursor: pointer;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: "Roboto Mono", monospace;
 }

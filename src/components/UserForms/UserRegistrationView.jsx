@@ -16,13 +16,14 @@ const UserRegistrationView = (props) => {
 
 	return (
 		<div className="signUpForm">
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="theFormLogin">
 				<div className="signUpItems">
 					<h1>Sign Up</h1>
 
 					<div className="nameContainer">
 						<label for="firstname"> First Name:</label>
 						<input
+							className="input-box firstname"
 							type="text"
 							key="firstname"
 							name="firstName"
@@ -34,6 +35,7 @@ const UserRegistrationView = (props) => {
 
 						<label for="lastname"> Last Name:</label>
 						<input
+							className="input-box lastname"
 							type="text"
 							key="lastname"
 							name="lastName"
@@ -46,6 +48,7 @@ const UserRegistrationView = (props) => {
 					<div className="emailContainer">
 						<label for="email"> Email:</label>
 						<input
+							className="input-box email"
 							type="text"
 							key="email"
 							name="email"
@@ -58,6 +61,7 @@ const UserRegistrationView = (props) => {
 					<div className="passwordContainer">
 						<label for="password"> Password:</label>
 						<input
+							className="input-box password"
 							type="password"
 							id="password"
 							name="password"
@@ -67,12 +71,14 @@ const UserRegistrationView = (props) => {
 						<div>{errors.password}</div>
 					</div>
 
-					<button>Submit</button>
+					<button className="loginButton">Sign Up</button>
 				</div>
 			</form>
 			<div className="toLoginForm">
 				<h2>Already have an account?</h2>
-				<button onClick={handleSwitch}>Login</button>
+				<button className="loginFormButton" onClick={handleSwitch}>
+					Login
+				</button>
 			</div>
 		</div>
 	);
