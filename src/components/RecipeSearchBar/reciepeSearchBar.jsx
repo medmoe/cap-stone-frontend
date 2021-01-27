@@ -2,14 +2,13 @@ import React from "react";
 import "./reciepeSearchBar.css";
 import axios from "axios";
 
-const RecipeSearchBar = async () => {
-	const handleSubmit = (event) => {
+const RecipeSearchBar = () => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const response = await axios.get();
 
-		console.log(response)
-
+		console.log(response);
 	};
 
 	return (

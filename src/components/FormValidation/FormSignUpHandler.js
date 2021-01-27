@@ -28,7 +28,6 @@ const FormSignUpHandler = (UseFormSignUpValidation, handleIsLogin) => {
 
 		if (recieveError === undefined) {
 			dispatch(addCurrentUserToStateAction(formInfo));
-			console.log("here");
 			handleIsLogin(true);
 		} else {
 			setErrors(recieveError);

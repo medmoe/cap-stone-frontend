@@ -5,6 +5,7 @@ import "./userMainFormContainer.css";
 
 const UserMainFormContainer = (props) => {
 	const [signUpForm, setSignUpForm] = useState(true);
+	const [signInForm, setSignInForm] = useState(false);
 
 	const handleSwitchToSignUp = () => {
 		setSignUpForm(true);
