@@ -18,8 +18,12 @@ const FormSignInHandler = (UseFormLoginValidation, handleIsLogin) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setErrors(await UseFormLoginValidation(formInfo));
-		if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+		let recieveError = await UseFormLoginValidation(formInfo);
+		setErrors(recieveError);
+		if (
+			Object.keys(recieveError).length === 0 &&
+			recieveError.constructor === Object
+		) {
 			handleIsLogin(true);
 		}
 	};
