@@ -1,31 +1,54 @@
-import React from 'react';
-import './AllRecipes.css'
+import axios from 'axios';
+import React, { Component } from 'react';
+import AllRecipesView from './AllRecipesView'
 
-const AllRecipes = () => {
 
-    return(
-        <div className = "AllRecipesContainer">
-            {/* essentially, we would pass in props here, in order to map all of the recipes */}
-            <h1 className = "RecipeMainText">Our Recipes</h1>
-            <div className = "RecipeContainer">
-            <div className = "DishNameContainer">
-                <h2 className = "Dish-Name">Name of food</h2>
+class AllRecipes extends Component {
+    constructor(props) {
+        super(props);
+        //initializing state, data will go in recipes array
+        this.state = {
+            recipes: []
+        };
+        this.SearchAllRecipes = this.SearchAllRecipes.bind(this);
+    }
+    //gets recipes from local database
+    SearchAllRecipes(){
+        axios.get('http://localhost:8080/api/recipes')
+            .then((results) => {
+                console.log(results.data.recipes)
+                this.setState({
+                    recipes: results.data.recipes
+                });
+            })
+            .catch((error) => console.log(error))
+    }
+    //this enables user to click on all recipes tab, and theyre all loaded up when the page opens
+    componentDidMount(){
+        this.SearchAllRecipes();
+    }
+
+    render(){
+        return(
+            <div>
+                <div className = "AllRecipesContainer">
+                <h1 className = "RecipeMainText">Our Recipes</h1>
+                {this.state.recipes.map((dish, index) => {
+                    return(
+                        <AllRecipesView 
+                            key = {index}
+                            recipeName = {dish.name}
+                            recipeDescription = {dish.description}
+
+                        />
+                    )
+                })}
                 </div>
-
-                <div className = "DishDescContainer">
-                <h2 className = "Dish-Desc">Description</h2>
-                </div>
-
-                <div className = "ImageContainer"> 
-                    <img
-                        className = "food-image"
-                        alt = "Food"
-                    />
-                </div>
-                
             </div>
-        </div>
-    )
+            
+
+        )
+    }
 }
 
 export default AllRecipes;
