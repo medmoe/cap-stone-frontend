@@ -12,7 +12,7 @@ const FormSignUpHandler = (UseFormSignUpValidation, handleIsLogin) => {
 		password: "",
 	});
 
-	const [errors, setErrors] = useState({});
+	let [errors, setErrors] = useState({});
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -24,8 +24,12 @@ const FormSignUpHandler = (UseFormSignUpValidation, handleIsLogin) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setErrors(await UseFormSignUpValidation(formInfo));
-		if (Object.keys(errors).length === 0 && errors.constructor === Object) {
+		let recieveError = await UseFormSignUpValidation(formInfo);
+		setErrors(recieveError);
+		if (
+			Object.keys(recieveError).length === 0 &&
+			recieveError.constructor === Object
+		) {
 			dispatch(addCurrentUserToStateAction(formInfo));
 			handleIsLogin(true);
 		}
