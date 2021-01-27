@@ -15,6 +15,7 @@ class AllRecipesView extends Component{
     //     }}>
 
     // }
+    
 
     render(){
         return(
