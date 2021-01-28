@@ -10,27 +10,13 @@ import UserLoginView from "../UserForms/UserLoginView";
 const InRoutes = () => {
 	return (
 		<Switch>
-			<Route exact path="/signUp">
-				<UserRegistrationView />
-			</Route>
-			<Route exact path="/userProfile">
-				<UserProfile />
-			</Route>
-			<Route exact path="/allrecipes">
-				<AllRecipes />
-			</Route>
-			<Route exact path="/searchBar">
-				<RecipeSearchBar />
-			</Route>
-			<Route exact path="/recipe">
-				<RecipeDisplay />
-			</Route>
-			<Route exact path="/signUp">
-				<UserRegistrationView />
-			</Route>
-			<Route exact path="/signIn">
-				<UserLoginView />
-			</Route>
+			<Route exact path="/signUp" component={UserRegistrationView}></Route>
+			<Route exact path="/userProfile" component={UserProfile}></Route>
+			<Route exact path="/allrecipes" component={AllRecipes}></Route>
+			<Route exact path="/searchBar" component={RecipeSearchBar}></Route>
+			<Route exact path="/recipe" component={RecipeDisplay}></Route>
+			<Route exact path="/signUp" component={UserRegistrationView}></Route>
+			<Route exact path="/signIn" component={UserLoginView}></Route>
 		</Switch>
 	);
 };

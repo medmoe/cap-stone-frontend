@@ -42,11 +42,10 @@ const SideNavBar = () => {
 				<button className="Sidebar-btn" onClick={toSearchBar}>
 					Search
 				</button>
-				<Link to="/signUp">
-					<button className="Sidebar-btn" onClick={backToHome}>
-						Logout
-					</button>
-				</Link>
+
+				<button className="Sidebar-btn" onClick={backToHome}>
+					Logout
+				</button>
 			</div>
 			<div className="Main-sidebar-container-btn"></div>
 		</div>

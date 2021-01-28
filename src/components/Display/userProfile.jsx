@@ -11,10 +11,10 @@ const UserProfile = () => {
 		<div className="userProfileMainContainer">
 			<div className="userProfileInformationContainer">
 				<div className="userProfileUser">
-					<div class="userProfileImage"></div>
+					<div className="userProfileImage"></div>
 					<div className="userProfileUserNameContainer">
-						<h2>First Name</h2>
-						<h2>Last Name</h2>
+						<h2>{currentUserInfo.firstName}</h2>
+						<h2>{currentUserInfo.lastName}</h2>
 					</div>
 				</div>
 				<div className="userProfileData">

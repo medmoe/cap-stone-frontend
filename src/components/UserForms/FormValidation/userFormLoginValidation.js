@@ -18,14 +18,12 @@ export const UseFormLoginValidation = async (formObject) => {
 		//Check if the password is 6 characters or longer. If it is short, give the errors object the error String
 		errors.password = "Password need to be longer than 6 characters";
 	}
-
+	axios.defaults.withCredentials = true;
 	if (Object.keys(errors).length === 0 && errors.constructor === Object) {
-		console.log("here");
 		const x = await axios.post(
 			"http://localhost:8080/api/users/login",
 			formObject
 		);
-		console.log(x);
 		return x;
 	} else {
 		return errors;

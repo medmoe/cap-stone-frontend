@@ -6,6 +6,8 @@
 
 .Main-Container {
 	height: 100vh;
+
+	background-color: white;
 }
 
 .Main-ContainerWithSideNav {
@@ -28,4 +30,10 @@
 		rgba(255, 164, 7, 1),
 		rgba(117, 35, 218, 1)
 	);
+}
+
+@media only screen and (max-width: 375px) {
+	.Main-Container {
+		border: 2px solid purple;
+	}
 }

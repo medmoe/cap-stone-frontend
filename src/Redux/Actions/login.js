@@ -13,3 +13,5 @@ export const remoteCookiesAction = (payload) => {
 		payload,
 	};
 };
+
+export const checkIfUserHasSession = () => {};

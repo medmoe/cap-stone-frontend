@@ -1,12 +1,12 @@
 import React from "react";
-import { UseFormLoginValidation } from "../FormValidation/userFormLoginValidation";
 import "./UserLoginView.css";
-import FormSignInHandler from "../FormValidation/FormSignInHandler";
+//import Form Validation and FormHandler
+import FormSignInHandler from "../UserForms/FormValidation/FormSignInHandler";
+import { UseFormLoginValidation } from "../UserForms/FormValidation/userFormLoginValidation";
 
 const UserLoginView = (props) => {
 	const { handleChange, formInfo, handleSubmit, errors } = FormSignInHandler(
-		UseFormLoginValidation,
-		props.handleIsLogin
+		UseFormLoginValidation
 	);
 
 	const handleSwitchToSignUp = () => {

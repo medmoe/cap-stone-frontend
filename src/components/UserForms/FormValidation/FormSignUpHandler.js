@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addCurrentUserToStateAction } from "../../Redux/Actions/currentUser";
-import { addCookiesAction } from "../../Redux/Actions/login";
+import { addCurrentUserToStateAction } from "../../../Redux/Actions/currentUser";
+import { addCookiesAction } from "../../../Redux/Actions/login";
 
-const FormSignUpHandler = (UseFormSignUpValidation, handleIsLogin) => {
+const FormSignUpHandler = (UseFormSignUpValidation) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [formInfo, setFormInfo] = useState({
