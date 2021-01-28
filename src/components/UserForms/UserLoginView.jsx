@@ -14,44 +14,38 @@ const UserLoginView = (props) => {
 	};
 
 	return (
-		<div className="LoginForm">
-			<form className="theForm" onSubmit={handleSubmit}>
-				<div className="loginFormItems">
-					<h1>Login In</h1>
-					<div className="emailContainer">
-						<label for="email"> Email:</label>
-						<input
-							className="emailinput loginEmailInput"
-							type="text"
-							key="email"
-							name="email"
-							onChange={handleChange}
-							value={formInfo.email}
-						></input>
-						<div>{errors.email}</div>
-					</div>
+		<div className="login-form-main-container">
+			<form className="login-form" onSubmit={handleSubmit}>
+				<h1>Login In</h1>
 
-					<div className="passwordContainer">
-						<label for="password"> Password:</label>
-						<input
-							className="passwordinput loginPasswordInput"
-							type="password"
-							id="password"
-							name="password"
-							onChange={handleChange}
-							value={formInfo.password}
-						></input>
-						<div>{errors.password}</div>
-					</div>
-					<div className="buttonContainer">
-						<button className="loginButton">Login</button>
-					</div>
-				</div>
+				<label for="email"> Email:</label>
+				<input
+					className="input-box"
+					type="text"
+					key="email"
+					name="email"
+					onChange={handleChange}
+					value={formInfo.email}
+				></input>
+				<div className="error">{errors.email}</div>
+
+				<label for="password"> Password:</label>
+				<input
+					className="input-box"
+					type="password"
+					id="password"
+					name="password"
+					onChange={handleChange}
+					value={formInfo.password}
+				></input>
+				<div className="error">{errors.password}</div>
+
+				<button className="login-button">Login</button>
 			</form>
 
 			<div className="toSignUpForm">
 				<h2>Don't have an account?</h2>
-				<button className="toSignUpForms" onClick={handleSwitchToSignUp}>
+				<button className="SignFormButton" onClick={handleSwitchToSignUp}>
 					Sign Up
 				</button>
 			</div>
