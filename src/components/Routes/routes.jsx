@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import RecipeSearchBar from "../RecipeSearchBar/reciepeSearchBar";
 import UserProfile from "../Display/userProfile";
-import AllRecipes from "../AllRecipes/AllRecipes";
 import RecipeDisplay from "../RecipeDisplay/RecipeDisplay";
+import AllRecipesView from "../AllRecipes/AllRecipesView";
 
 const Routes = () => {
 	return (
@@ -16,7 +16,7 @@ const Routes = () => {
 			</Route>
 			
 			<Route exact path = "/allrecipes">
-				<AllRecipes />
+				<AllRecipesView />
 			</Route>
 
 			<Route exact path = "/recipe">

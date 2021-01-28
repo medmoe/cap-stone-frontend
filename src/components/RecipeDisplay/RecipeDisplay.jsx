@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import './RecipeDisplay.css';
+import {fetchSingleRecipe} from '../../Redux/Reducers/SingleRecipe';
+import {connect} from 'react-redux';
 
 class RecipeDisplay extends Component {
     
 
+    componentDidMount(){
+        this.props.fetchSingleRecipe();
+    }
+
     render(){
+        console.log("SingleRecipeView props:", this.props);
     return(
         <div className = "RecipeMainContainer">
             <div className = "RecipeNameMain">
@@ -60,4 +67,16 @@ class RecipeDisplay extends Component {
     }
 }
 
-export default RecipeDisplay;
+const mapStateToProps = state => {
+    return{
+        singleRecipe: state.singleRecipeReducer.singleRecipe
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return{
+        fetchSingleRecipe: () => dispatch(fetchSingleRecipe())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeDisplay);
