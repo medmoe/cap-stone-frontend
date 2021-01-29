@@ -7,29 +7,30 @@ class RecipeDisplay extends Component {
     
 
     componentDidMount(){
-        this.props.fetchSingleRecipe();
+        this.props.fetchSingleRecipe(this.props.match.params.id);
+        // console.log(this.props.match.params)
     }
 
     render(){
-        console.log("SingleRecipeView props:", this.props);
+        // console.log("SingleRecipeView props:", this.props.match.params);
+        // {this.props.singleRecipe.name}
     return(
         <div className = "RecipeMainContainer">
             <div className = "RecipeNameMain">
-                <h1 class = "RecipeNameText">recipe name</h1>
+                <h1 class = "RecipeNameText">{this.props.singleRecipe.name}</h1>
             </div>
 
             <div className = "RecipeImageMain">
                 <img
-                    src = "/public/logo512.png"
+                    className = "RecipeDisplayImage"
+                    src = {this.props.singleRecipe.image}
                     alt = "Some Good Food"
                 />
             </div>
 
             <div className = "RecipeDescriptionMain">
                 <h1 className = "RecipeDescriptionText">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                     standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
-                     make a type specimen book.
+                    {this.props.singleRecipe.instructions}
                 </h1>     
             </div>
 
@@ -75,7 +76,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return{
-        fetchSingleRecipe: () => dispatch(fetchSingleRecipe())
+        fetchSingleRecipe: (id) => dispatch(fetchSingleRecipe(id))
     }
 }
 

@@ -12,7 +12,7 @@ const FETCH_ALL_RECIPES = "FETCH_ALL_RECIPES";
 const getAllRecipes = (data) =>  {
     return{
         type: FETCH_ALL_RECIPES,
-        data
+        payload: data
     }
 }
 
@@ -20,9 +20,11 @@ const getAllRecipes = (data) =>  {
 export const fetchAllRecipes = () => {
     return async (dispatch) => {
         try {
+            const posting = await axios.post('http://localhost:8080/api/recipes/')
             const response = await axios.get('http://localhost:8080/api/recipes/')
             console.log(response)
-            dispatch(getAllRecipes(response.data.recipes));
+            // console.log(posting);
+            dispatch(getAllRecipes(response.data.allRecipes));
         } catch (error) {
             console.error(error);
         }
@@ -37,7 +39,7 @@ const allRecipesReducer = (state = initialState, action) => {
         case FETCH_ALL_RECIPES:  
         return{
                 ...state,
-                recipes: action.data
+                recipes: action.payload
             }
         default:
             return state;

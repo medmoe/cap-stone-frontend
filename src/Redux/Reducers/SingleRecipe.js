@@ -16,12 +16,13 @@ const getSingleRecipe = (data) => {
 }
 
 //THUNK
-export const fetchSingleRecipe = (recipeName) => {
+export const fetchSingleRecipe = (id) => {
+    console.log(id);
     return async (dispatch) => {
         try {
-            const response = axios.get(`http://localhost:8080/api/recipes/pizza`)
+            const response = await axios.get(`http://localhost:8080/api/recipes/recipeid/${id}`)
             console.log(response)
-            dispatch(getSingleRecipe(response.data.singleRecipe));
+            dispatch(getSingleRecipe(response.data));
         } catch (error) {
             console.error(error);
         }
@@ -37,6 +38,8 @@ const singleRecipeReducer = (state = startState, action) =>{
                 ...state,
                 singleRecipe: action.data
             }
+            default:
+                return state;
     }
 }
 

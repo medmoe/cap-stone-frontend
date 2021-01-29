@@ -27,6 +27,13 @@
     border:3px solid black;
     width: 82%;
     margin-left: auto;
+    max-height: 300px;
+    clear: both;
+}
+
+.RecipeDisplayImage{
+    width: 100%;
+    height: 100%;
 }
 
 .RecipeTextMain{

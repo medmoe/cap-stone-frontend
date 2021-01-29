@@ -19,8 +19,7 @@ const Routes = () => {
 				<AllRecipesView />
 			</Route>
 
-			<Route exact path = "/recipe">
-				<RecipeDisplay />
+			<Route exact path = "/recipes/recipeid/:id" component = {RecipeDisplay}>
 			</Route>
 		</Switch>
 	);
