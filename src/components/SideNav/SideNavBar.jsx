@@ -30,6 +30,7 @@ const SideNavBar = () => {
 			"http://localhost:8080/api/users/logout",
 			currentUser
 		);
+		history.push("/signUp");
 		console.log(response);
 	};
 

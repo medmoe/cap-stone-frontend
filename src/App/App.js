@@ -25,8 +25,7 @@ const App = () => {
 			console.log(response);
 			if (response.data.loggedIn === true) {
 				console.log(response.data.loggedIn);
-				// console.log(response.data.user);
-				<Redirect to="/userProfile" />;
+
 				dispatch(addCookiesAction(response.data.loggedIn));
 				dispatch(addCurrentUserToStateAction(response.data.user));
 			}
@@ -45,7 +44,6 @@ const App = () => {
 			) : (
 				<>
 					<UserMainFormContainer />
-					{/* <Redirect to="/signUp" /> */}
 				</>
 			)}
 		</div>

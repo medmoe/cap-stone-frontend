@@ -71,45 +71,54 @@ const RecipeCreator = () => {
 
 	return (
 		<div className="RecipeCreator-main-container">
-			<form className="RecipeCreator" onSubmit={handleSubmit}>
-				<div className="RecipeCreatorField">
-					<label>Recipe Name</label>
-					<input
-						type="text"
-						name="recipeName"
-						onChange={handleChange}
-						className="recipecreator-inputbox"
-					></input>
-					<label>Your description</label>
-					<textarea name="description" onChange={handleChange}></textarea>
-					<label>Category</label>
-					<input type="text" name="category" onChange={handleChange}></input>
-					<label>Area</label>
-					<input type="text" name="area" onChange={handleChange}></input>
-					<label>Your Instruction</label>
-					<label>Image</label>
-					<input type="text" name="image" onChange={handleChange}></input>
-					<textarea name="instructions" onChange={handleChange}></textarea>
-					<label>Add Ingredient</label>
-					{count.map((count, index) => {
-						return (
-							<div key={index}>
-								<label>{`Ingredient${index + 1}: `}</label>
-								<input
-									name={`Ingredient${index + 1}`}
-									onChange={handleChange}
-								></input>
-								<button onClick={(index) => removeIngredients(index)}>
-									Remove Ingredients
-								</button>
-							</div>
-						);
-					})}
+			<div className="RecipeCreator-sub-container">
+				<form className="RecipeCreator" onSubmit={handleSubmit}>
+					<div className="RecipeCreatorField">
+						<label>Recipe Name</label>
+						<input
+							type="text"
+							name="recipeName"
+							onChange={handleChange}
+							className="recipecreator-inputbox"
+						></input>
+						<label>Your description</label>
+						<textarea name="description" onChange={handleChange}></textarea>
+						<label>Category</label>
+						<input type="text" name="category" onChange={handleChange}></input>
+						<label>Area</label>
+						<input type="text" name="area" onChange={handleChange}></input>
+						<label>Your Instruction</label>
+						<label>Image</label>
+						<input type="text" name="image" onChange={handleChange}></input>
+						<textarea name="instructions" onChange={handleChange}></textarea>
+						<label>Add Ingredient</label>
+						<button
+							className="addIngrident"
+							type="button"
+							name="add"
+							onClick={addIngredients}
+						>
+							Add Ingredient
+						</button>
+						{count.map((count, index) => {
+							return (
+								<div key={index}>
+									<label>{`Ingredient${index + 1}: `}</label>
+									<input
+										name={`Ingredient${index + 1}`}
+										onChange={handleChange}
+									></input>
+									<button onClick={(index) => removeIngredients(index)}>
+										Remove Ingredients
+									</button>
+								</div>
+							);
+						})}
 
-					<button type="submit">Create Recipe</button>
-				</div>
-			</form>
-			<button onClick={addIngredients}>Add Ingredient</button>
+						<button type="submit">Create Recipe</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 };

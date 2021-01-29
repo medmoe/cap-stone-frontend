@@ -50,3 +50,27 @@
 .Main-sidebar-container-group-btn {
 	height: 100px;
 }
+
+@media only screen and (max-width: 1200px) {
+	.Main-sidebar-container {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.Main-sidebar-container {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.Main-sidebar-container {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.Main-sidebar-container {
+		display: none;
+	}
+}
