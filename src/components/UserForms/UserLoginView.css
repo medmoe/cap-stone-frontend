@@ -1,0 +1,291 @@
+* {
+	font-family: "Roboto Mono", monospace;
+}
+
+.login-form-main-container {
+	grid-row-start: 2;
+	width: 25em;
+	align-items: center;
+}
+
+.error {
+	font-size: 12px;
+	color: red;
+	margin-top: 2px;
+}
+
+@media only screen and (max-width: 2400px) {
+	.login-form-main-container {
+		width: 100%;
+		height: 500px;
+	}
+
+	.login-form {
+		margin-top: 120px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.login-form label {
+		margin-top: 5px;
+	}
+
+	.input-box {
+		width: 300px;
+		margin-top: 5px;
+		padding: 5px;
+		border: 1px solid gray;
+		border-radius: 15px;
+		outline-style: none;
+	}
+
+	.login-button {
+		margin-top: 15px;
+		padding: 5px;
+		border-radius: 10px;
+		border: none;
+		outline-style: none;
+		cursor: pointer;
+	}
+
+	.toSignUpForm {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 12px;
+	}
+
+	.toSignUpForm h2 {
+		font-size: 10px;
+	}
+
+	.SignFormButton {
+		margin-left: 10px;
+		background: none;
+		border: none;
+		outline-style: none;
+		font-size: 10px;
+		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.login-form-main-container {
+		width: 100%;
+		height: 500px;
+	}
+
+	.login-form {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.login-form label {
+		margin-top: 5px;
+	}
+
+	.input-box {
+		width: 300px;
+		margin-top: 5px;
+		padding: 5px;
+		border: 1px solid gray;
+		border-radius: 15px;
+		outline-style: none;
+	}
+
+	.login-button {
+		margin-top: 15px;
+		padding: 5px;
+		border-radius: 10px;
+		border: none;
+		outline-style: none;
+		cursor: pointer;
+	}
+
+	.toSignUpForm {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.toSignUpForm h2 {
+		font-size: 10px;
+	}
+
+	.SignFormButton {
+		margin-left: 10px;
+		background: none;
+		border: none;
+		outline-style: none;
+		font-size: 10px;
+		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.login-form-main-container {
+		width: 100%;
+		height: 500px;
+	}
+
+	.login-form {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.login-form label {
+		margin-top: 5px;
+	}
+
+	.input-box {
+		width: 300px;
+		margin-top: 5px;
+		padding: 5px;
+		border: 1px solid gray;
+		border-radius: 15px;
+		outline-style: none;
+	}
+
+	.login-button {
+		margin-top: 15px;
+		padding: 5px;
+		border-radius: 10px;
+		border: none;
+		outline-style: none;
+		cursor: pointer;
+	}
+
+	.toSignUpForm {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.toSignUpForm h2 {
+		font-size: 10px;
+	}
+
+	.SignFormButton {
+		margin-left: 10px;
+		background: none;
+		border: none;
+		outline-style: none;
+		font-size: 10px;
+		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.login-form-main-container {
+		width: 100%;
+		height: 500px;
+	}
+
+	.login-form {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.login-form label {
+		margin-top: 5px;
+	}
+
+	.input-box {
+		width: 240px;
+		margin-top: 5px;
+		padding: 5px;
+		border: 1px solid gray;
+		border-radius: 15px;
+		outline-style: none;
+	}
+
+	.login-button {
+		margin-top: 15px;
+		padding: 5px;
+		border-radius: 10px;
+		border: none;
+		outline-style: none;
+		cursor: pointer;
+	}
+
+	.toSignUpForm {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.toSignUpForm h2 {
+		font-size: 10px;
+	}
+
+	.SignFormButton {
+		margin-left: 10px;
+		background: none;
+		border: none;
+		outline-style: none;
+		font-size: 10px;
+		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.login-form-main-container {
+		width: 100%;
+		height: 500px;
+	}
+
+	.login-form {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.login-form label {
+		margin-top: 5px;
+	}
+
+	.input-box {
+		width: 220px;
+		margin-top: 5px;
+		padding: 5px;
+		border: 1px solid gray;
+		border-radius: 15px;
+		outline-style: none;
+	}
+
+	.login-button {
+		margin-top: 15px;
+		padding: 5px;
+		border-radius: 10px;
+		border: none;
+		outline-style: none;
+		cursor: pointer;
+	}
+
+	.toSignUpForm {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.toSignUpForm h2 {
+		font-size: 10px;
+	}
+
+	.SignFormButton {
+		margin-left: 10px;
+		background: none;
+		border: none;
+		outline-style: none;
+		font-size: 10px;
+		cursor: pointer;
+	}
+}

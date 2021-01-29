@@ -1,0 +1,41 @@
+.RecipeCreator-main-container {
+	display: grid;
+	grid-template-columns: 250px auto 250px;
+	grid-template-rows: 100px auto 100px;
+}
+
+.RecipeCreator-sub-container {
+	border-radius: 55px 55px 55px 55px;
+	grid-column-start: 2;
+	grid-row-start: 2;
+	background: white;
+}
+
+.RecipeCreator {
+	border: 2px solid red;
+}
+
+.addIngrident {
+}
+
+.RecipeCreatorField {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media only screen and (max-width: 1200px) {
+	.RecipeCreator-main-container {
+		grid-template-columns: 20px auto 20px;
+	}
+
+	.RecipeCreator {
+		background: green;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.RecipeCreator-main-container {
+		width: 100%;
+	}
+}

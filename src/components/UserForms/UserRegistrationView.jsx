@@ -1,158 +1,82 @@
-import axios from 'axios';
-import React, {useState} from 'react';
-// import {useFormLoginValidation} from '../../FormValidation';
+import React from "react";
+import "./UserRegistrationView.css";
+//import Form Validation and FormHandler
+import { UseFormSignUpValidation } from "../UserForms/FormValidation/userFormSignUpValidation";
+import FormSignUpHandler from "../UserForms/FormValidation/FormSignUpHandler";
 
+const UserRegistrationView = (props) => {
+	//This function let us handle form validation, submit the form, send out errors
+	const { handleChange, formInfo, handleSubmit, errors } = FormSignUpHandler(
+		UseFormSignUpValidation
+	);
 
+	//This function help user switch between the signup page and the loginpage on the main home screen
+	const handleSwitch = () => {
+		props.handleSwitch();
+	};
 
+	return (
+		<div className="sign-form-main-container">
+			<form onSubmit={handleSubmit} className="signup-form">
+				<div className="signup-form-header">
+					<h1>Sign Up</h1>
+				</div>
 
+				<label className="signup-form-firstname-label" for="firstname">
+					First Name:
+				</label>
+				<input
+					className="input-box firstname"
+					type="text"
+					key="firstname"
+					name="firstName"
+					onChange={handleChange}
+					value={formInfo.firstName}
+				></input>
+				<div className="error">{errors.firstname}</div>
 
+				<label for="lastname"> Last Name:</label>
+				<input
+					className="input-box lastname"
+					type="text"
+					key="lastname"
+					name="lastName"
+					onChange={handleChange}
+					value={formInfo.lastName}
+				></input>
+				<div className="error">{errors.lastname}</div>
 
-const UserRegistrationView = () => {
+				<label for="email"> Email:</label>
+				<input
+					className="input-box email"
+					type="text"
+					key="email"
+					name="email"
+					onChange={handleChange}
+					value={formInfo.email}
+				></input>
+				<div className="error">{errors.email}</div>
 
-    
-    const UseFormRegistrationValidation = (formObject) => {
-        let errors = {};
-    
-        //Check if the first name is empty. If it is empty, give the errors object the error String
-        if (!formObject.firstname.trim()) {
-             errors.firstname= "Firstname required!";
-        } else if (formObject.firstname.length < 2) {
-            //Check if the first name is short. If it is short, give the errors object the error String
-            errors.firstname = "Firstname must be longer than one character";
-        }
-    
-        //Check if the first name is empty. If it is empty, give the errors object the error String
-        if (!formObject.lastname.trim()) {
-            errors.lastname = "Lastname required!";
-        } else if (formObject.lastname.length < 2) {
-            //Check if the last name is short. If it is short, give the errors object the error String
-            errors.lastname = "Lastname must be longer than one character";
-        }
-    
-        //Check if the email is empty. If it is empty, give the errors object the error String
-        if (!formObject.email) {
-            errors.email = "Email required!";
-        } else if (!/\S+@\S+\.\S+/.test(formObject.email)) {
-            //Check if the email is valid WITH THE "@" If it is not valid, give the errors object the error String
-            errors.email = "Please provide a valid email";
-        }
-    
-        //Check if the password is empty. If it is empty, give the errors object the error String
-        if (!formObject.password) {
-            errors.password = "Please provide a pasword";
-        } else if (formObject.password.length < 6) {
-            //Check if the password is 6 characters or longer. If it is short, give the errors object the error String
-            errors.password = "Password need to be longer than 6 characters";
-        }
-    
-        return errors;
-    };
+				<label for="password"> Password:</label>
+				<input
+					className="input-box password"
+					type="password"
+					id="password"
+					name="password"
+					onChange={handleChange}
+					value={formInfo.password}
+				></input>
+				<div className="error">{errors.password}</div>
 
-
-    const [firstname, setfirstname] = useState("");
-    const [lastname, setlastname] = useState("");
-    const [email, setemail] = useState("");
-    const [password, setpassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState({});     
-
-
-
-
-    const handleSubmit = (e) =>{
-        
-        e.preventDefault();
-        let userInfo = {
-            firstname,
-            lastname,
-            email,
-            password,
-        }
-        
-        const isValid = UseFormRegistrationValidation(userInfo);
-
-        var isThereAnyError = false;
-
-
-
-        for (let element in isValid) {
-            if (isValid.hasOwnProperty(element)) {
-                //This will loop through the error object to find whether or not it is empty
-                isThereAnyError = true;
-            }
-        }
-
-        if(isThereAnyError == false) {
-            setfirstname("");
-            setlastname("");
-            setemail("");
-            setpassword("");
-            console.log("sucess");
-            setErrorMessage({});
-
-            // axios
-            //     .post(..., userInfo)
-            //      
-
-        }else{
-            setErrorMessage(isValid)
-        }
-       
-    }
-
-    const handleChange = (e) => {
-        let {name} = e.target;
-        let {value} = e.target;
-
-        switch (name) {
-            case "firstname":
-                setfirstname(value);
-                break;
-            case "lastname":
-                setlastname(value);
-                break;
-            case "email":
-                setemail(value);
-                break;
-            case "password":
-                setpassword(value);
-                break;
-            default:
-                break;
-        }
-    }
-
-
-
-return(
-    <div>
-        <form onSubmit = {handleSubmit}>
-            <label for = "firstname" > First Name:</label>
-            <input type ="text" key = "firstname" name = "firstname"
-            onChange = {handleChange} value = {firstname}></input>
-            <div>{errorMessage.firstname}</div>
-            <br></br>
-            
-            <label for = "lastname" > Last Name:</label>
-            <input type ="text" key = "lastname" name = "lastname" onChange = {handleChange} value = {lastname}></input>
-            <div>{errorMessage.lastname}</div>
-            <br></br>
-    
-            <label for = "email" > Email:</label>
-            <input type ="text" key = "email" name = "email" onChange = {handleChange} value = {email}></input>
-            <div>{errorMessage.email}</div>
-            <br></br>
-    
-            <label for = "password" > Password:</label>
-            <input type ="password" id = "password" name = "password" onChange = {handleChange} value = {password}></input>
-            <div>{errorMessage.password}</div>
-            <br></br>
-            <button>Submit</button>
-        </form>
-    </div>
-)
-
-        
-}
+				<button className="sign-button">sign up</button>
+			</form>
+			<div className="toLoginForm">
+				<h2>Already have an account?</h2>
+				<button className="loginFormButton" onClick={handleSwitch}>
+					Login
+				</button>
+			</div>
+		</div>
+	);
+};
 export default UserRegistrationView;
-
-//this gets sent to the index.js file in the views folder

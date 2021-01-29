@@ -4,9 +4,6 @@ import "./reciepeSearchBar.css";
 import {Redirect, Link, useHistory} from "react-router-dom";
 
 
-
-
-
 const RecipeSearchBar = () => {
 
 const history = useHistory()

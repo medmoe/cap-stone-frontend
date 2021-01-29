@@ -7,14 +7,22 @@ const UserProfile = () => {
 		(state) => state.currentUserReducer.currentUser
 	);
 
+	var d = new Date();
+	var date = d.getDate();
+	var month = d.getMonth() + 1;
+	var year = d.getFullYear();
+	var dataStr = month + "/" + date + "/" + year;
+
 	return (
 		<div className="userProfileMainContainer">
 			<div className="userProfileInformationContainer">
 				<div className="userProfileUser">
-					<div class="userProfileImage"></div>
+					<div className="userProfileImage"></div>
 					<div className="userProfileUserNameContainer">
-						<h2>First Name</h2>
-						<h2>Last Name</h2>
+						<h2>{currentUserInfo.firstName}</h2>
+						<h2>{currentUserInfo.lastName}</h2>
+						<h2>Today's date </h2>
+						<h3>{dataStr}</h3>
 					</div>
 				</div>
 				<div className="userProfileData">
