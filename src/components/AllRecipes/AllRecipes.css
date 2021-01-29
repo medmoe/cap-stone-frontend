@@ -1,12 +1,17 @@
-.AllRecipesContainer{
-    background: #6809fa;
+body{
+  background: #6809fa;
 	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
 	background: -moz-linear-gradient(top right, #6809fa, #da5c72);
 	background: linear-gradient(to bottom left, #6809fa, #da5c72);
 
-    display: block;
-
-    height: 100%;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.AllRecipesContainer{
+  overflow: auto;
+  max-height: 100vh;
 }
 
 .RecipeMainText{

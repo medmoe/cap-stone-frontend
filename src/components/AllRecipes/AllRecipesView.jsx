@@ -13,15 +13,8 @@ class AllRecipesView extends Component {
         this.props.fetchAllRecipes();
     } 
 
-
-
-    nameFunction = (result) => {
-        <Redirect to = {`/recipe/${result}`} />
-    } 
-
-
     render(){
-        console.log("AllRecipesView Props:", this.props);
+        // console.log("AllRecipesView Props:", this.props);
         return(
             <div className = "AllRecipesContainer">
                 {this.props.recipes ? this.props.recipes.map((result, index) => (

@@ -1,8 +1,8 @@
 .Main-sidebar-container {
 	display: flex;
 	flex-direction: column;
-	text-align: center;
-	justify-content: space-between;
+	/* text-align: center; */
+	/* justify-content: space-between; */
 	background-color: #b589d6;
 	border: none;
 }
@@ -26,5 +26,6 @@
 }
 
 .Main-sidebar-container-group-btn {
-	height: 100px;
+	height: 85px;
+
 }

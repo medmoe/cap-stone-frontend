@@ -11,57 +11,64 @@ class RecipeDisplay extends Component {
         // console.log(this.props.match.params)
     }
 
+    addToFavorites = (event) => {
+        console.log("The recipe:", this.props.singleRecipe.name)
+        console.log("The recipe id:", this.props.singleRecipe.id)
+        // this.props.addToFavorites(event.target.value)
+
+    }
+
     render(){
-        // console.log("SingleRecipeView props:", this.props.match.params);
+        console.log("SingleRecipeView props:", this.props.match.params);
         // {this.props.singleRecipe.name}
     return(
         <div className = "RecipeMainContainer">
-            <div className = "RecipeNameMain">
-                <h1 class = "RecipeNameText">{this.props.singleRecipe.name}</h1>
-            </div>
-
-            <div className = "RecipeImageMain">
+            <button onClick = {this.addToFavorites} value = {this.props.singleRecipe.id}>Add To Favorites</button>
+            <div className = "RecipeMain">
                 <img
                     className = "RecipeDisplayImage"
                     src = {this.props.singleRecipe.image}
                     alt = "Some Good Food"
                 />
-            </div>
-
-            <div className = "RecipeDescriptionMain">
+                <h1 className = "RecipeNameText">{this.props.singleRecipe.name}</h1>
                 <h1 className = "RecipeDescriptionText">
                     {this.props.singleRecipe.instructions}
-                </h1>     
-            </div>
+                </h1> 
 
-            <div className = "RecipeIngredientsMain">
-                <h1 className = "RecipeIngredientsText">
+                <div className = "row">
+                <div className = "column side">
+                    <h2>More Info</h2>
                     A list of very long ingredients goes here!
                     dcmlpkcmnp
                     mcmqdmcknvj
                     cbqihvivio
                     qfkvofq
-                </h1>
+                </div>
+
+                <div className = "column middle">
+                    <h1>More Info</h1>
+                    
+                    It is a long established fact that a reader
+                    will be distracted by the readable content 
+                    of a page when looking at its layout. The 
+                    point of using Lorem Ipsum is that it has 
+                    a more-or-less normal distribution of letters,
+                    as opposed to using 'Content here, content here',
+                </div>
+
+                <div className = "column side">
+                    <h2>Ingredients</h2>
+                    A list of very long ingredients goes here!
+                    dcmlpkcmnp
+                    mcmqdmcknvj
+                    cbqihvivio
+                    qfkvofq
+                </div>
             </div>
 
-            <div className = "RecipeInstructionsMain">
-                <p className = "small-text">
-                It is a long established fact that a reader
-                will be distracted by the readable content 
-                of a page when looking at its layout. The 
-                point of using Lorem Ipsum is that it has 
-                a more-or-less normal distribution of letters,
-                as opposed to using 'Content here, content here',
-                making it look like readable English. Many desktop 
-                publishing packages and web page editors now use 
-                Lorem Ipsum as their default model text, and a 
-                search for 'lorem ipsum' will uncover many web
-                sites still in their infancy. Various versions
-                have evolved over the years, sometimes by 
-                accident, sometimes on purpose injected 
-                humour and the like.
-                </p>
             </div>
+
+            
         </div>
 
     )
