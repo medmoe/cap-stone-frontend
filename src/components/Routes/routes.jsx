@@ -6,6 +6,7 @@ import AllRecipes from "../AllRecipes/AllRecipes";
 import RecipeDisplay from "../RecipeDisplay/RecipeDisplay";
 import UserRegistrationView from "../UserForms/UserRegistrationView";
 import UserLoginView from "../UserForms/UserLoginView";
+import RecipeCreator from "../Display/recipeCreator";
 
 const InRoutes = () => {
 	return (
@@ -17,6 +18,7 @@ const InRoutes = () => {
 			<Route exact path="/recipe" component={RecipeDisplay}></Route>
 			<Route exact path="/signUp" component={UserRegistrationView}></Route>
 			<Route exact path="/signIn" component={UserLoginView}></Route>
+			<Route excat paht="/recipecreator" component={RecipeCreator}></Route>
 		</Switch>
 	);
 };

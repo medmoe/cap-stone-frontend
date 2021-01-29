@@ -1,6 +1,6 @@
 import React from "react";
 import "./SideNavBar.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { remoteCookiesAction } from "../../Redux/Actions/login";
 
@@ -24,6 +24,10 @@ const SideNavBar = () => {
 		dispatch(remoteCookiesAction(false));
 	};
 
+	const toRecipeCreator = () => {
+		history.push("/recipecreator");
+	};
+
 	return (
 		<div className="Main-sidebar-container">
 			<div className="Main-sidebar-container-btn">
@@ -33,6 +37,10 @@ const SideNavBar = () => {
 			<div className="Main-sidebar-container-btn Main-sidebar-container-group-btn">
 				<button className="Sidebar-btn" onClick={toUserProfile}>
 					Dashboard
+				</button>
+
+				<button className="Sidebar-btn" onClick={toRecipeCreator}>
+					Creator
 				</button>
 
 				<button className="Sidebar-btn" onClick={toAllRecipes}>
