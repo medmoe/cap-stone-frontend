@@ -1,4 +1,7 @@
 import axios from "axios";
+import { store } from "../../../index";
+import { addCurrentUserToStateAction } from "../../../Redux/Actions/currentUser";
+import { addCookiesAction } from "../../../Redux/Actions/login";
 
 export const UseFormLoginValidation = async (formObject) => {
 	let errors = {};
@@ -18,13 +21,15 @@ export const UseFormLoginValidation = async (formObject) => {
 		//Check if the password is 6 characters or longer. If it is short, give the errors object the error String
 		errors.password = "Password need to be longer than 6 characters";
 	}
+
 	axios.defaults.withCredentials = true;
 	if (Object.keys(errors).length === 0 && errors.constructor === Object) {
 		const x = await axios.post(
 			"http://localhost:8080/api/users/login",
 			formObject
 		);
-		return x;
+		store.dispatch(addCookiesAction(x.data.loggedIn));
+		store.dispatch(addCurrentUserToStateAction(x.data.user));
 	} else {
 		return errors;
 	}

@@ -7,13 +7,6 @@
 .Main-Container {
 	height: 100vh;
 
-	background-color: white;
-}
-
-.Main-ContainerWithSideNav {
-	display: grid;
-	grid-template-columns: 120px auto;
-	min-height: 100vh;
 	background: rgba(255, 164, 7, 1);
 	background: -webkit-linear-gradient(
 		bottom right,
@@ -30,6 +23,15 @@
 		rgba(255, 164, 7, 1),
 		rgba(117, 35, 218, 1)
 	);
+}
+
+.Main-ContainerWithSideNav {
+	display: grid;
+	grid-template-columns: 0.1fr 1fr;
+
+	grid-template-areas: "sidebar main";
+
+	min-height: 100vh;
 }
 
 @media only screen and (max-width: 375px) {

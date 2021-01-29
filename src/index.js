@@ -16,7 +16,7 @@ import thunkMiddleware from "redux-thunk";
 // React-Router
 import { BrowserRouter } from "react-router-dom";
 
-const store = createStore(
+export const store = createStore(
 	allReducers,
 	composeWithDevTools(
 		applyMiddleware(thunkMiddleware.withExtraArgument({ axios }))

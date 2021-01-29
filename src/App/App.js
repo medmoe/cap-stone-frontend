@@ -12,11 +12,16 @@ import { Redirect } from "react-router-dom";
 
 const App = () => {
 	const dispatch = useDispatch();
-
+	const currentUser = useSelector(
+		(state) => state.currentUserReducer.currentUser
+	);
 	const isLogin = useSelector((state) => state.isLoginReducer.isLogin);
 	useEffect(async () => {
 		try {
-			const response = await axios.get("http://localhost:8080/api/users/login");
+			console.log(currentUser.email);
+			const response = await axios.get(
+				`http://localhost:8080/api/users/login/${currentUser.email}`
+			);
 			console.log(response);
 			if (response.data.loggedIn === true) {
 				console.log(response.data.loggedIn);
@@ -34,7 +39,6 @@ const App = () => {
 			{isLogin ? (
 				<div className="Main-ContainerWithSideNav">
 					<SideNav />
-
 					<Routes />
 				</div>
 			) : (

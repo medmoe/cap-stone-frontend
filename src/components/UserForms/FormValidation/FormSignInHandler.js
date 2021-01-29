@@ -1,15 +1,11 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addCurrentUserToStateAction } from "../../../Redux/Actions/currentUser";
-import { addCookiesAction } from "../../../Redux/Actions/login";
 
 const FormSignInHandler = (UseFormLoginValidation) => {
 	const [formInfo, setFormInfo] = useState({
 		email: "",
 		password: "",
 	});
-	const dispatch = useDispatch();
 	const [errors, setErrors] = useState({});
 	const history = useHistory();
 	const handleChange = (e) => {
@@ -24,13 +20,10 @@ const FormSignInHandler = (UseFormLoginValidation) => {
 		e.preventDefault();
 		let recieveError = await UseFormLoginValidation(formInfo);
 
-		if (recieveError.data.loggedIn === true) {
-			console.log("here");
-			dispatch(addCookiesAction(recieveError.data.loggedIn));
-			dispatch(addCurrentUserToStateAction(recieveError.data.user));
-			history.push("/userProfile");
-		} else {
+		if (recieveError) {
 			setErrors(recieveError);
+		} else {
+			history.push("/userProfile");
 		}
 	};
 

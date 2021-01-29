@@ -1,16 +1,17 @@
 .RecipeCreator-main-container {
+	grid-area: "main";
 	display: grid;
-	grid-template-columns: 300px auto 300px;
-	align-content: center;
+
 	border: 2px solid red;
 }
 
 .RecipeCreator {
-	grid-column-start: 2;
 	border-radius: 55px 55px 55px 55px;
 	background: white;
+	margin: 0 auto;
+	margin-top: 100px;
 	overflow: auto;
-	width: 100%;
+	width: 50%;
 	height: 700px;
 }
 
