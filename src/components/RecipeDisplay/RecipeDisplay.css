@@ -1,0 +1,115 @@
+.RecipeMainContainer{
+    background: #6809fa;
+	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
+	background: -moz-linear-gradient(top right, #6809fa, #da5c72);
+	background: linear-gradient(to bottom left, #6809fa, #da5c72);
+
+    display: block;
+
+    height: 100%;
+}
+
+.RecipeNameText{
+    font-size: 75px;
+    color: white;
+    text-align: center;
+}
+
+.RecipeImageMain{
+    border:3px solid black;
+    width: 30%;
+    height: 30%;
+    margin: auto;
+
+}
+
+.RecipeMain{
+    min-height: 100%;
+    height: fit-content;
+    width:70%;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:column;
+    flex-direction:column;
+    position:relative;
+    -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius:16px;
+    overflow:hidden;
+    /* -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff; */
+    /* box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff; */
+    margin-right: auto;
+    margin-left: auto;
+    background-color: gray;
+}
+
+.RecipeDisplayImage{
+    max-width: 165px;
+    max-height: 165px;
+    border: 5px white solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.RecipeTextMain{
+    width: 100%;
+    text-align: center;
+
+}
+
+.RecipeDescriptionText{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    height: 30%;
+}
+
+.RecipeIngredientsMain{
+    width: 18%;
+    border: 3px solid black;
+    height: 60%;
+    margin-top: -13%;
+
+}
+
+.RecipeIngredientsText{
+    font-size: medium;
+}
+
+.RecipeInstructionsMain{
+    width: 82%;
+    border: 3px solid black;
+    display: flex;
+    /* margin-top: -58%;*/
+    margin-left: auto;
+    margin-top: -24%;
+    height: auto;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.column {
+    float: left;
+    padding: 10px;
+}
+  
+  /* Left and right column */
+.column.side {
+    width: 25%;
+    font-size: 12px;
+}
+  
+/* Middle column */
+.column.middle {
+    width: 50%;
+    font-size: 12px;
+}
