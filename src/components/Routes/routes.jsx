@@ -11,12 +11,11 @@ import RecipeCreator from "../Display/recipeCreator";
 const InRoutes = () => {
 	return (
 		<Switch>
-			<Route exact path="/signUp" component={UserRegistrationView}></Route>
 			<Route exact path="/userProfile" component={UserProfile}></Route>
+			<Route exact path="/signUp" component={UserRegistrationView}></Route>s
 			<Route exact path="/allrecipes" component={AllRecipes}></Route>
 			<Route exact path="/searchBar" component={RecipeSearchBar}></Route>
 			<Route exact path="/recipe" component={RecipeDisplay}></Route>
-			<Route exact path="/signUp" component={UserRegistrationView}></Route>
 			<Route exact path="/signIn" component={UserLoginView}></Route>
 			<Route excat paht="/recipecreator" component={RecipeCreator}></Route>
 		</Switch>

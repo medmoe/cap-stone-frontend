@@ -18,14 +18,15 @@ const App = () => {
 	const isLogin = useSelector((state) => state.isLoginReducer.isLogin);
 	useEffect(async () => {
 		try {
-			console.log(currentUser.email);
+			const token = localStorage.getItem("token");
 			const response = await axios.get(
-				`http://localhost:8080/api/users/login/${currentUser.email}`
+				`http://localhost:8080/api/users/login/${token}`
 			);
 			console.log(response);
 			if (response.data.loggedIn === true) {
 				console.log(response.data.loggedIn);
-				console.log(response.data.user);
+				// console.log(response.data.user);
+				<Redirect to="/userProfile" />;
 				dispatch(addCookiesAction(response.data.loggedIn));
 				dispatch(addCurrentUserToStateAction(response.data.user));
 			}
@@ -44,7 +45,7 @@ const App = () => {
 			) : (
 				<>
 					<UserMainFormContainer />
-					<Redirect to="/signUp" />
+					{/* <Redirect to="/signUp" /> */}
 				</>
 			)}
 		</div>

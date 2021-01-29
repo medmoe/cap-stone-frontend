@@ -28,6 +28,10 @@ export const UseFormLoginValidation = async (formObject) => {
 			"http://localhost:8080/api/users/login",
 			formObject
 		);
+		console.log(x.data.sessionID);
+
+		localStorage.setItem("token", x.data.sessionID);
+
 		store.dispatch(addCookiesAction(x.data.loggedIn));
 		store.dispatch(addCurrentUserToStateAction(x.data.user));
 	} else {

@@ -1,12 +1,16 @@
 import React from "react";
 import "./SideNavBar.css";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { remoteCookiesAction } from "../../Redux/Actions/login";
 
 const SideNavBar = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
+	const currentUser = useSelector(
+		(state) => state.currentUserReducer.currentUser
+	);
 	const toUserProfile = () => {
 		history.push("/userProfile");
 	};
@@ -19,9 +23,14 @@ const SideNavBar = () => {
 		history.push("/allrecipes");
 	};
 
-	const backToHome = () => {
+	const backToHome = async () => {
 		localStorage.clear();
 		dispatch(remoteCookiesAction(false));
+		const response = await axios.post(
+			"http://localhost:8080/api/users/logout",
+			currentUser
+		);
+		console.log(response);
 	};
 
 	const toRecipeCreator = () => {
