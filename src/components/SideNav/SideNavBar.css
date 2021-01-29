@@ -2,6 +2,11 @@
 	grid-area: "sidebar";
 	display: flex;
 	flex-direction: column;
+	/* text-align: center; */
+	/* justify-content: space-between; */
+	background-color: #b589d6;
+	border: none;
+
 	text-align: center;
 	justify-content: space-between;
 	background: rgba(211, 1, 192, 0.1);
@@ -48,7 +53,8 @@
 }
 
 .Main-sidebar-container-group-btn {
-	height: 100px;
+	height: 85px;
+
 }
 
 @media only screen and (max-width: 1200px) {

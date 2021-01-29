@@ -10,6 +10,7 @@ import { addCurrentUserToStateAction } from "../Redux/Actions/currentUser";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
+
 const App = () => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(

@@ -19,7 +19,7 @@ import { BrowserRouter } from "react-router-dom";
 export const store = createStore(
 	allReducers,
 	composeWithDevTools(
-		applyMiddleware(thunkMiddleware.withExtraArgument({ axios }))
+		applyMiddleware(loggingMiddleware,thunkMiddleware.withExtraArgument({ axios }))
 	)
 );
 

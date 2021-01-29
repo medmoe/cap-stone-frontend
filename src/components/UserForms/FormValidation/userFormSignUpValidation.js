@@ -16,6 +16,7 @@ export const UseFormSignUpValidation = async (formObject) => {
 	} else if (formObject.lastName.length < 2) {
 		//Check if the last name is short. If it is short, give the errors object the error String
 		error.lastname = "Lastname must be longer than one character";
+
 	}
 
 	//Check if the email is empty. If it is empty, give the errors object the error String
@@ -45,3 +46,4 @@ export const UseFormSignUpValidation = async (formObject) => {
 		return error;
 	}
 };
+
