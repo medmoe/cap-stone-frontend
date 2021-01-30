@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import "./recipeCreator.css";
 import axios from "axios";
 
@@ -11,8 +12,8 @@ const RecipeCreator = () => {
 	const [instructions, setInstructions] = useState("");
 	const [description, setDescription] = useState("");
 	const [all_ingredients, setIngredients] = useState({});
-
 	const [count, setCount] = useState([]);
+	const userInfo = useSelector((state) => state.currentUserReducer.currentUser);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -54,6 +55,7 @@ const RecipeCreator = () => {
 			instructions,
 			image,
 			description,
+			email: userInfo.email,
 		});
 	};
 

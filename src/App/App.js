@@ -12,9 +12,6 @@ import { addCurrentUserToStateAction } from "../Redux/Actions/currentUser";
 
 const App = () => {
 	const dispatch = useDispatch();
-	const currentUser = useSelector(
-		(state) => state.currentUserReducer.currentUser
-	);
 
 	const isLogin = useSelector((state) => state.isLoginReducer.isLogin);
 	useEffect(async () => {
