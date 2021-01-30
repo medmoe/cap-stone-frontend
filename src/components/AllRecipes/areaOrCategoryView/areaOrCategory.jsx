@@ -17,7 +17,7 @@ const AreaOrCategory = () => {
 			setAllRecipes(response.data);
 		} else {
 			const response = await axios.get(
-				`http://localhost:8080/api/recipes/recipecategory/${searchTerm}`
+				`http://localhost:8080/api/recipes/recipearea/${searchTerm}`
 			);
 			setAllRecipes(response.data);
 		}

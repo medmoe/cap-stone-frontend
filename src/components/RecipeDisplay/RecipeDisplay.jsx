@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./RecipeDisplay.css";
@@ -6,6 +7,7 @@ import "./RecipeDisplay.css";
 const RecipeDisplay = () => {
 	const [recipe, setRecipe] = useState({});
 	const { id } = useParams();
+	const userInfo = useSelector((state) => state.currentUserReducer.currentUser);
 
 	useEffect(async () => {
 		const response = await axios.get(
@@ -13,6 +15,15 @@ const RecipeDisplay = () => {
 		);
 		setRecipe(response.data);
 	}, []);
+
+	const addFavorite = (recipeID) => {
+		let email = userInfo.email;
+
+		axios.post(
+			`http://localhost:8080/api/recipes/add/to-favorite${recipeID}`,
+			email
+		);
+	};
 
 	return (
 		<div className="RecipeMainContainer">
@@ -48,6 +59,7 @@ const RecipeDisplay = () => {
 						dcmlpkcmnp mcmqdmcknvj cbqihvivio qfkvofq
 					</div>
 				</div>
+				<button onClick={() => addFavorite(recipe.id)}>add Favorite</button>
 			</div>
 		</div>
 	);
