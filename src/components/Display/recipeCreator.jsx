@@ -74,48 +74,55 @@ const RecipeCreator = () => {
 			<div className="RecipeCreator-sub-container">
 				<form className="RecipeCreator" onSubmit={handleSubmit}>
 					<div className="RecipeCreatorField">
-						<label>Recipe Name</label>
+						<label>Recipe Name:</label>
 						<input
 							type="text"
 							name="recipeName"
 							onChange={handleChange}
 							className="recipecreator-inputbox"
 						></input>
-						<label>Your description</label>
+						<label>Your description: </label>
 						<textarea name="description" onChange={handleChange}></textarea>
-						<label>Category</label>
+						<label>Category:</label>
 						<input type="text" name="category" onChange={handleChange}></input>
-						<label>Area</label>
+						<label>Area:</label>
 						<input type="text" name="area" onChange={handleChange}></input>
-						<label>Your Instruction</label>
-						<label>Image</label>
-						<input type="text" name="image" onChange={handleChange}></input>
+						<label>Your Instruction:</label>
 						<textarea name="instructions" onChange={handleChange}></textarea>
-						<label>Add Ingredient</label>
+						<label>Image:</label>
+						<input type="text" name="image" onChange={handleChange}></input>
+						<label>Add Ingredient:</label>
 						<button
 							className="addIngrident"
 							type="button"
 							name="add"
 							onClick={addIngredients}
 						>
-							Add Ingredient
+							+
 						</button>
 						{count.map((count, index) => {
 							return (
 								<div key={index}>
-									<label>{`Ingredient${index + 1}: `}</label>
+									<label className="ingrident">{`Ingredient${
+										index + 1
+									}: `}</label>
 									<input
 										name={`Ingredient${index + 1}`}
 										onChange={handleChange}
 									></input>
-									<button onClick={(index) => removeIngredients(index)}>
-										Remove Ingredients
+									<button
+										className="removeIngrident"
+										onClick={(index) => removeIngredients(index)}
+									>
+										-
 									</button>
 								</div>
 							);
 						})}
 
-						<button type="submit">Create Recipe</button>
+						<button type="submit" className="create">
+							Create Recipe
+						</button>
 					</div>
 				</form>
 			</div>

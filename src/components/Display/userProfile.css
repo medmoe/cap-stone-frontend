@@ -9,7 +9,7 @@
 	border-radius: 55px;
 	width: 95%;
 	margin-left: 50px;
-	background: rgba(255, 255, 255, 0.1);
+	background: linear-gradient(5deg, #556270, #c44d58);
 	box-shadow: 0px 0px 28px 3px #585858;
 	display: grid;
 	grid-template-columns: 350px auto;
