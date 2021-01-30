@@ -1,59 +1,46 @@
-import React, { Component } from 'react';
-import './AllRecipes.css'
-import {fetchAllRecipes} from '../../Redux/Reducers/AllRecipes';
-import {connect} from 'react-redux';
-import {Redirect, Link} from 'react-router-dom'
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import "./AllRecipes.css";
+import axios from "axios";
 
-class AllRecipesView extends Component {
-    
+const AllRecipesView = () => {
+	const [allRecipes, setAllRecipes] = useState([]);
+	const history = useHistory();
 
+	useEffect(async () => {
+		const response = await axios.get("http://localhost:8080/api/recipes");
+		console.log("sss", response.data.allRecipes);
+		setAllRecipes(response.data.allRecipes);
+	}, []);
 
-    componentDidMount(){
-        this.props.fetchAllRecipes();
-    } 
+	const toSingleRecipe = (name) => {
+		history.push(`/recipes/recipeid/${name}`);
+	};
 
-    render(){
-        // console.log("AllRecipesView Props:", this.props);
-        return(
-            <div className = "AllRecipesContainer">
-                {this.props.recipes ? this.props.recipes.map((result, index) => (
-                    <div className = "container" key = {index}>
-                        
-                            <img
-                                className = "container__image"
-                                src = {result.image}
-                                alt = "Food"
-                            />
+	return (
+		<div className="AllRecipesContainer">
+			{allRecipes ? (
+				allRecipes.map((result, index) => (
+					<div className="container" key={index}>
+						<img className="container__image" src={result.image} alt="Food" />
 
-                        <div className = "container__text">
-                            <Link to = {`/recipes/recipeid/${result.id}`}>
-                                <h2 className = "Dish-Name"> {result.name}</h2>
-                            </Link>
-                            <h2 className = "Dish-Desc">{result.category}</h2>
-                        </div>
+						<div className="container__text">
+							<h2
+								onClick={() => toSingleRecipe(result.name)}
+								className="Dish-Name"
+							>
+								{result.name}
+							</h2>
 
-                        
-                    </div>
-                )):<h1>LOADING...</h1>}
-            </div>
-        )
-    }
-}
+							<h2 className="Dish-Desc">{result.category}</h2>
+						</div>
+					</div>
+				))
+			) : (
+				<h1>LOADING...</h1>
+			)}
+		</div>
+	);
+};
 
-
-const mapStateToProps = state => {
-    console.log("mapstatetoprops:", state)
-    return{
-        recipes: state.allRecipesReducer.recipes
-    }
-}
-
-const mapDispatchToProps = dispatch =>{
-    return{
-        fetchAllRecipes: () => dispatch(fetchAllRecipes())
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllRecipesView);
+export default AllRecipesView;

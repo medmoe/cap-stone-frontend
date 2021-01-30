@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import "./RecipeDisplay.css";
 
-const RecipeDisplay = (props) => {
+const RecipeDisplay = () => {
+	const [recipe, setRecipe] = useState({});
+	const { id } = useParams();
+
+	useEffect(async () => {
+		const response = await axios.get(
+			`http://localhost:8080/api/recipes/recipename/${id}`
+		);
+		setRecipe(response.data);
+	}, []);
+
 	return (
 		<div className="RecipeMainContainer">
 			{/* <button onClick={this.addToFavorites} value={this.props.singleRecipe.id}>
 				Add To Favorites
 			</button> */}
-			{/* <div className="RecipeMain">
+			<div className="RecipeMain">
 				<img
 					className="RecipeDisplayImage"
-					src={this.props.singleRecipe.image}
+					src={recipe.image}
 					alt="Some Good Food"
 				/>
-				<h1 className="RecipeNameText">{this.props.singleRecipe.name}</h1>
-				<h1 className="RecipeDescriptionText">
-					{this.props.singleRecipe.instructions}
-				</h1>
+				<h1 className="RecipeNameText">{recipe.name}</h1>
+				<h1 className="RecipeDescriptionText">{recipe.instructions}</h1>
 
 				<div className="row">
 					<div className="column side">
@@ -38,7 +48,7 @@ const RecipeDisplay = (props) => {
 						dcmlpkcmnp mcmqdmcknvj cbqihvivio qfkvofq
 					</div>
 				</div>
-			</div> */}
+			</div>
 		</div>
 	);
 };

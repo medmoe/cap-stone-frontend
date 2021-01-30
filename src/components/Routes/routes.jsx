@@ -21,6 +21,7 @@ const InRoutes = () => {
 			<Route exact path="/allrecipes">
 				<AllRecipesView />
 			</Route>
+			<Route exact path="/recipe" component={RecipeDisplay}></Route>
 			<Route
 				exact
 				path="/recipes/recipeid/:id"

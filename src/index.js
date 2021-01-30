@@ -13,13 +13,17 @@ import allReducers from "./Redux/Reducers/index";
 import { composeWithDevTools } from "redux-devtools-extension";
 import loggingMiddleware from "redux-logger";
 import thunkMiddleware from "redux-thunk";
+
 // React-Router
 import { BrowserRouter } from "react-router-dom";
 
 export const store = createStore(
 	allReducers,
 	composeWithDevTools(
-		applyMiddleware(loggingMiddleware,thunkMiddleware.withExtraArgument({ axios }))
+		applyMiddleware(
+			loggingMiddleware,
+			thunkMiddleware.withExtraArgument({ axios })
+		)
 	)
 );
 
