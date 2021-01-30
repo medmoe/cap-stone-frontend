@@ -10,7 +10,6 @@ import { addCurrentUserToStateAction } from "../Redux/Actions/currentUser";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-
 const App = () => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(
@@ -24,9 +23,8 @@ const App = () => {
 				`http://localhost:8080/api/users/login/${token}`
 			);
 			console.log(response);
-			if (response.data.loggedIn === true) {
-				console.log(response.data.loggedIn);
 
+			if (response.data.loggedIn === true) {
 				dispatch(addCookiesAction(response.data.loggedIn));
 				dispatch(addCurrentUserToStateAction(response.data.user));
 			}

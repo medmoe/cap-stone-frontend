@@ -8,8 +8,8 @@ const FormSignUpHandler = (UseFormSignUpValidation) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [formInfo, setFormInfo] = useState({
-		firstName: "",
-		lastName: "",
+		first_name: "",
+		last_name: "",
 		email: "",
 		password: "",
 	});

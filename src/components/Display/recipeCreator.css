@@ -1,27 +1,90 @@
+* {
+	font-family: "Roboto Mono", monospace;
+}
+
 .RecipeCreator-main-container {
 	display: grid;
 	grid-template-columns: 250px auto 250px;
-	grid-template-rows: 100px auto 100px;
+	grid-template-rows: 50px auto 50px;
 }
 
 .RecipeCreator-sub-container {
 	border-radius: 55px 55px 55px 55px;
 	grid-column-start: 2;
 	grid-row-start: 2;
-	background: white;
+	background: linear-gradient(5deg, #556270, #c44d58);
 }
 
 .RecipeCreator {
-	border: 2px solid red;
-}
-
-.addIngrident {
+	min-height: 700px;
 }
 
 .RecipeCreatorField {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 40px;
+}
+
+.RecipeCreatorField label {
+	font-size: 14px;
+	color: white;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.RecipeCreatorField input {
+	padding: 10px;
+	width: 500px;
+
+	outline-style: none;
+
+	background: none;
+	border-bottom: 1px solid rgba(255, 255 255, 0.1);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.RecipeCreatorField textarea {
+	outline-style: none;
+
+	padding: 10px;
+	width: 500px;
+	background: none;
+	border-bottom: 1px solid rgba(255, 255 255, 0.1);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.addIngrident {
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	width: 50px;
+	margin-bottom: 10px;
+	outline-style: none;
+}
+
+.removeIngrident {
+	border-radius: 10px;
+	margin-left: 10px;
+	width: 50px;
+	border: none;
+	cursor: pointer;
+	outline-style: none;
+}
+
+.ingrident {
+	margin-left: -90px;
+}
+
+.create {
+	border: none;
+	margin-top: 5px;
+	cursor: pointer;
+	outline-style: none;
 }
 
 @media only screen and (max-width: 1200px) {

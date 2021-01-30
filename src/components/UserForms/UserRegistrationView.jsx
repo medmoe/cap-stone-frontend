@@ -29,9 +29,9 @@ const UserRegistrationView = (props) => {
 					className="input-box firstname"
 					type="text"
 					key="firstname"
-					name="firstName"
+					name="first_name"
 					onChange={handleChange}
-					value={formInfo.firstName}
+					value={formInfo.first_name}
 				></input>
 				<div className="error">{errors.firstname}</div>
 
@@ -40,9 +40,9 @@ const UserRegistrationView = (props) => {
 					className="input-box lastname"
 					type="text"
 					key="lastname"
-					name="lastName"
+					name="last_name"
 					onChange={handleChange}
-					value={formInfo.lastName}
+					value={formInfo.last_name}
 				></input>
 				<div className="error">{errors.lastname}</div>
 
