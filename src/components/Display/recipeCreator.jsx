@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./recipeCreator.css";
 import axios from "axios";
@@ -14,6 +15,7 @@ const RecipeCreator = () => {
 	const [all_ingredients, setIngredients] = useState({});
 	const [count, setCount] = useState([]);
 	const userInfo = useSelector((state) => state.currentUserReducer.currentUser);
+	const history = useHistory();
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -24,7 +26,8 @@ const RecipeCreator = () => {
 			`http://localhost:8080/api/recipes/add/${recipeName}`,
 			recipe
 		);
-		console.log(response);
+		// console.log(response);
+		history.push(`/recipes/recipeid/${recipeName}`);
 	};
 
 	const handleChange = (event) => {
