@@ -13,9 +13,14 @@ const RecipeSearchBar = () => {
 	const [searchByArea, setSearchByArea] = useState(false);
 	const history = useHistory();
 
-	const HandleSubmit = (e) => {
+	const handleSubmitByName = (e) => {
 		e.preventDefault();
 		history.push(`/recipes/recipeid/${search}`);
+	};
+
+	const handleSubmitByAreaOrCategory = (e) => {
+		e.preventDefault();
+		history.push(`/areaorcategoryrecipes/${search}`);
 	};
 
 	const handleChangeForm = (e) => {
@@ -52,11 +57,20 @@ const RecipeSearchBar = () => {
 		<div className="RecipeSearchBarMainContainer">
 			<div className="RecipeSearchBarMiddleContainer">
 				{searchByName ? (
-					<SearchByNameForm handleQuery={handleQuery} />
+					<SearchByNameForm
+						handleQuery={handleQuery}
+						handleSubmitByName={handleSubmitByName}
+					/>
 				) : searchByCategory ? (
-					<SearchByCategoryForm handleQuery={handleQuery} />
+					<SearchByCategoryForm
+						handleQuery={handleQuery}
+						handleSubmitByAreaOrCategory={handleSubmitByAreaOrCategory}
+					/>
 				) : (
-					<SearchByAreaForm handleQuery={handleQuery} />
+					<SearchByAreaForm
+						handleQuery={handleQuery}
+						handleSubmitByAreaOrCategory={handleSubmitByAreaOrCategory}
+					/>
 				)}
 
 				<div className="buttonContainer">
