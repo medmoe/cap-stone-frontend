@@ -40,8 +40,8 @@ export const UseFormSignUpValidation = async (formObject) => {
 			"http://localhost:8080/api/users/register",
 			formObject
 		);
-
 		console.log(x.data);
+		localStorage.setItem("token", x.data.sessionID);
 	} else {
 		return error;
 	}
