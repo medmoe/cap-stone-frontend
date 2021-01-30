@@ -20,7 +20,9 @@ const RecipeSearchBar = () => {
 
 	const handleSubmitByAreaOrCategory = (e) => {
 		e.preventDefault();
+		console.log("IS THIS WORKING", search)
 		history.push(`/areaorcategoryrecipes/${search}`);
+
 	};
 
 	const handleChangeForm = (e) => {

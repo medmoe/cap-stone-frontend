@@ -3,7 +3,7 @@ import React from "react";
 const SearchByCategoryForm = (props) => {
 	return (
 		<div>
-			<form>
+			<form onSubmit = {props.handleSubmitByAreaOrCategory}>
 				<div className="theBar">
 					<div className="barHeader">
 						<h1>Let's find your desired recipe by category</h1>

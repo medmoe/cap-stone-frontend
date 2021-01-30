@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const AreaOrCategory = () => {
 	const [allRecipes, setAllRecipes] = useState([]);
 	const history = useHistory();
 
+	const { id } = useParams();
+
+
 	useEffect(async () => {
-		const response = await axios.get("http://localhost:8080/api/recipes");
-		console.log("sss", response.data.allRecipes);
-		setAllRecipes(response.data.allRecipes);
+		console.log(id)
+		const response = await axios.get(`http://localhost:8080/api/recipes/recipecategory/${id}`);
+		console.log("sss", response);
+		setAllRecipes(response.data);
 	}, []);
 
 	const toSingleRecipe = (name) => {
@@ -18,7 +23,7 @@ const AreaOrCategory = () => {
 
 	return (
 		<div className="AllRecipesContainer">
-			{/* {allRecipes ? (
+			{allRecipes ? (
 				allRecipes.map((result, index) => (
 					<div className="container" key={index}>
 						<img className="container__image" src={result.image} alt="Food" />
@@ -37,7 +42,7 @@ const AreaOrCategory = () => {
 				))
 			) : (
 				<h1>LOADING...</h1>
-			)} */}
+			)}
 		</div>
 	);
 };
