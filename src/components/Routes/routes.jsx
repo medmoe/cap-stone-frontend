@@ -24,7 +24,7 @@ const InRoutes = () => {
 			</Route>
 			<Route
 				exact
-				path="/areaorcategoryrecipes/:id"
+				path="/areaorcategoryrecipes/:type?/:searchTerm"
 				component={AreaOrCategory}
 			></Route>
 			<Route exact path="/recipe" component={RecipeDisplay}></Route>
