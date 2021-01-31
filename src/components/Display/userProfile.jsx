@@ -1,12 +1,14 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./userProfile.css";
+import FavoriteRecipe from "./favoriteRecipe";
 
 const UserProfile = () => {
 	const currentUserInfo = useSelector(
 		(state) => state.currentUserReducer.currentUser
 	);
-
+	console.log("sadsadsadsadsa", currentUserInfo.recipes);
 	var d = new Date();
 	var date = d.getDate();
 	var month = d.getMonth() + 1;
@@ -15,22 +17,39 @@ const UserProfile = () => {
 
 	return (
 		<div className="userProfileMainContainer">
-			<div className="userProfileInformationContainer">
-				<div className="userProfileUser">
-					<div className="userProfileImage"></div>
-					<div className="userProfileUserNameContainer">
-						<h2>{currentUserInfo.user.first_name}</h2>
-						<h2>{currentUserInfo.user.last_name}</h2>
-						<h2>Today's date </h2>
-						<h3>{dataStr}</h3>
+			{currentUserInfo.user ? (
+				<div className="userProfileInformationContainer">
+					<div className="userProfileUser">
+						<div className="userProfileImage"></div>
+						<div className="userProfileUserNameContainer">
+							<h2>{currentUserInfo.user.first_name}</h2>
+							<h2>{currentUserInfo.user.last_name}</h2>
+							<h2>Today's date </h2>
+							<h3>{dataStr}</h3>
+						</div>
+					</div>
+					<div className="userProfileData">
+						{currentUserInfo.recipes[2] ? (
+							<div>
+								<FavoriteRecipe recipe={currentUserInfo.recipes[0]} />
+								<FavoriteRecipe recipe={currentUserInfo.recipes[1]} />
+								<FavoriteRecipe recipe={currentUserInfo.recipes[2]} />
+							</div>
+						) : currentUserInfo.recipes[1] ? (
+							<div>
+								<FavoriteRecipe recipe={currentUserInfo.recipes[0]} />
+								<FavoriteRecipe recipe={currentUserInfo.recipes[1]} />
+							</div>
+						) : currentUserInfo.recipes[0] ? (
+							<div>
+								<FavoriteRecipe recipe={currentUserInfo.recipes[0]} />{" "}
+							</div>
+						) : null}
 					</div>
 				</div>
-				<div className="userProfileData">
-					<div className="items">sada</div>
-					<div className="items">sadsa</div>
-					<div className="items">asdasd</div>
-				</div>
-			</div>
+			) : (
+				<div> loading </div>
+			)}
 		</div>
 	);
 };

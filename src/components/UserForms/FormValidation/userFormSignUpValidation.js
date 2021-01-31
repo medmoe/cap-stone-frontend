@@ -27,6 +27,14 @@ export const UseFormSignUpValidation = async (formObject) => {
 	} else if (!/\S+@\S+\.\S+/.test(formObject.email)) {
 		//Check if the email is valid WITH THE "@" If it is not valid, give the errors object the error String
 		error.email = "Please provide a valid email";
+	} else {
+		const x = await axios.get(
+			`http://localhost:8080/api/users/${formObject.email}`
+		);
+		console.log(x);
+		if (x.data === "email exist") {
+			error.email = "This email is already in used";
+		}
 	}
 
 	//Check if the password is empty. If it is empty, give the errors object the error String
@@ -43,6 +51,9 @@ export const UseFormSignUpValidation = async (formObject) => {
 			"http://localhost:8080/api/users/register",
 			formObject
 		);
+
+		console.log(x);
+
 		console.log(x.data);
 		localStorage.setItem("token", x.data.sessionID);
 		store.dispatch(addCookiesAction(x.data.loggedIn));
