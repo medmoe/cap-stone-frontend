@@ -26,7 +26,7 @@
 .RecipeMain{
     min-height: 100%;
     height: fit-content;
-    width:70%;
+    width:75%;
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
@@ -44,7 +44,7 @@
     /* box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff; */
     margin-right: auto;
     margin-left: auto;
-    background-color: gray;
+    background: linear-gradient(5deg, #556270, #c44d58);
 }
 
 .RecipeDisplayImage{
@@ -67,6 +67,7 @@
     margin-right: auto;
     font-size: 14px;
     height: 30%;
+    text-align:justify
 }
 
 .RecipeIngredientsMain{
@@ -82,7 +83,7 @@
 }
 
 .RecipeInstructionsMain{
-    width: 82%;
+    width: 80%;
     border: 3px solid black;
     display: flex;
     /* margin-top: -58%;*/
@@ -112,4 +113,17 @@
 .column.middle {
     width: 50%;
     font-size: 12px;
+}
+
+.medium-text{
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+
+.small-text{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
 }

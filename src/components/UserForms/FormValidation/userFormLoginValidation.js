@@ -32,11 +32,10 @@ export const UseFormLoginValidation = async (formObject) => {
 		console.log("mounting set items");
 		console.log(x.data);
 		localStorage.setItem("token", x.data.sessionID);
-
+		localStorage.setItem("email", x.data.user.user.email);
 		store.dispatch(addCookiesAction(x.data.loggedIn));
 		store.dispatch(addCurrentUserToStateAction(x.data.user));
 	} else {
 		return errors;
 	}
 };
-

@@ -1,60 +1,95 @@
-import axios from "axios";
 import React, { useState } from "react";
 import "./reciepeSearchBar.css";
-import {Redirect, Link, useHistory} from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
+//Component
+import SearchByAreaForm from "./searchByArea/searchByArea.jsx";
+import SearchByCategoryForm from "./searchByCategory/searchByCategoryForm";
+import SearchByNameForm from "./searchByName/searchByName";
 
 const RecipeSearchBar = () => {
+	const [search, setSearch] = useState("");
+	const [searchByCategory, setSearchByCategory] = useState(false);
+	const [searchByName, setSearchByName] = useState(true);
+	const [searchByArea, setSearchByArea] = useState(false);
+	const history = useHistory();
 
-const history = useHistory()
-
-const [search, setSearch] = useState("")
-
-const HandleSubmit = (e) => {
+	const handleSubmitByName = (e) => {
 		e.preventDefault();
+		history.push(`/recipes/recipeid/${search}`);
+	};
 
-		axios.get(`http://localhost:8080/api/recipes/recipeid/${search}`)
-			.then(results =>{
-			console.log(results.data.id);
-			// console.log(this.state.searchQuery)
-			// <Redirect to = "/allrecipes" />
-			history.push(`/recipes/recipeid/${results.data.id}`)
-			})
-			.catch((error) => console.log(error));
-			
-	}
-	
-const handleQuery = (e) => {
-	setSearch(e.target.value)
-}
+	const handleSubmitByAreaOrCategory = (e) => {
+		e.preventDefault();
+		history.push(`/areaorcategoryrecipes/${e.target.name}/${search}`);
+	};
 
+	const handleChangeForm = (e) => {
+		const { name } = e.target;
+		switch (name) {
+			case "searchName":
+				setSearchByName(true);
+				setSearchByCategory(false);
+				setSearchByArea(false);
+				break;
+			case "searchCategory":
+				setSearchByName(false);
+				setSearchByCategory(true);
+				setSearchByArea(false);
+				break;
+			case "searchArea":
+				setSearchByName(false);
+				setSearchByCategory(false);
+				setSearchByArea(true);
+				break;
+			default:
+				setSearchByName(true);
+				setSearchByCategory(false);
+				setSearchByArea(false);
+				break;
+		}
+	};
 
-	return(
+	const handleQuery = (e) => {
+		setSearch(e.target.value);
+	};
+
+	return (
 		<div className="RecipeSearchBarMainContainer">
 			<div className="RecipeSearchBarMiddleContainer">
-				<form className="barContainer" onSubmit = {HandleSubmit}>
-					<div className="theBar">
-						<div className="barHeader">
-							<h1>Let's find your desired recipe</h1>
-						</div>
+				{searchByName ? (
+					<SearchByNameForm
+						handleQuery={handleQuery}
+						handleSubmitByName={handleSubmitByName}
+					/>
+				) : searchByCategory ? (
+					<SearchByCategoryForm
+						handleQuery={handleQuery}
+						handleSubmitByAreaOrCategory={handleSubmitByAreaOrCategory}
+					/>
+				) : (
+					<SearchByAreaForm
+						handleQuery={handleQuery}
+						handleSubmitByAreaOrCategory={handleSubmitByAreaOrCategory}
+					/>
+				)}
+				
+				<div className="buttonContainer">
+					<button className = "searchButtons effect" name="searchName" onClick={handleChangeForm}>
+						Search By Name
+					</button>
+					<button className = "searchButtons effect" name="searchCategory" onClick={handleChangeForm}>
+						Search By Category
+					</button>
+					<button className = "searchButtons effect" name="searchArea" onClick={handleChangeForm}>
+						Search By Area
+					</button>
+				</div>
 
-						<input
-							className="searchBar"
-							placeholder="Enter a recipe name"
-							type="text"
-							onChange = {handleQuery}
-							value = {search}
-						></input>
-
-						
-						<button>Search</button>
-						
-					</div>
-				</form>
 			</div>
+				
+			
 		</div>
-	)
-}
-
+	);
+};
 
 export default RecipeSearchBar;

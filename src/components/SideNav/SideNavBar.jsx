@@ -26,9 +26,10 @@ const SideNavBar = () => {
 	const backToHome = async () => {
 		localStorage.clear();
 		dispatch(remoteCookiesAction(false));
+		console.log(currentUser);
 		const response = await axios.post(
 			"http://localhost:8080/api/users/logout",
-			currentUser
+			currentUser.user
 		);
 		history.push("/signUp");
 		console.log(response);

@@ -7,6 +7,7 @@ import AllRecipesView from "../AllRecipes/AllRecipesView";
 import UserRegistrationView from "../UserForms/UserRegistrationView";
 import UserLoginView from "../UserForms/UserLoginView";
 import RecipeCreator from "../Display/recipeCreator";
+import AreaOrCategory from "../AllRecipes/areaOrCategoryView/areaOrCategory";
 
 const InRoutes = () => {
 	return (
@@ -21,6 +22,12 @@ const InRoutes = () => {
 			<Route exact path="/allrecipes">
 				<AllRecipesView />
 			</Route>
+			<Route
+				exact
+				path="/areaorcategoryrecipes/:type?/:searchTerm"
+				component={AreaOrCategory}
+			></Route>
+			<Route exact path="/recipe" component={RecipeDisplay}></Route>
 			<Route
 				exact
 				path="/recipes/recipeid/:id"

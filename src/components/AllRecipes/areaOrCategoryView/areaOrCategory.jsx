@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./AllRecipes.css";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const AllRecipesView = () => {
+const AreaOrCategory = () => {
 	const [allRecipes, setAllRecipes] = useState([]);
 	const history = useHistory();
 
+	const { type, searchTerm } = useParams();
+
 	useEffect(async () => {
-		const response = await axios.get("http://localhost:8080/api/recipes");
-		console.log("sss", response.data.allRecipes);
-		setAllRecipes(response.data.allRecipes);
+		if (type === "category") {
+			const response = await axios.get(
+				`http://localhost:8080/api/recipes/recipecategory/${searchTerm}`
+			);
+			setAllRecipes(response.data);
+		} else {
+			const response = await axios.get(
+				`http://localhost:8080/api/recipes/recipearea/${searchTerm}`
+			);
+			setAllRecipes(response.data);
+		}
 	}, []);
 
 	const toSingleRecipe = (name) => {
@@ -32,7 +42,7 @@ const AllRecipesView = () => {
 								{result.name}
 							</h2>
 
-							<h2 className="Dish-Desc">Category: {result.category}</h2>
+							<h2 className="Dish-Desc">{result.category}</h2>
 						</div>
 					</div>
 				))
@@ -43,4 +53,4 @@ const AllRecipesView = () => {
 	);
 };
 
-export default AllRecipesView;
+export default AreaOrCategory;

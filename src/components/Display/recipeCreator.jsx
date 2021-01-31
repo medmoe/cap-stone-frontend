@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./recipeCreator.css";
 import axios from "axios";
 
@@ -11,19 +13,19 @@ const RecipeCreator = () => {
 	const [instructions, setInstructions] = useState("");
 	const [description, setDescription] = useState("");
 	const [all_ingredients, setIngredients] = useState({});
-
 	const [count, setCount] = useState([]);
-
+	const userInfo = useSelector((state) => state.currentUserReducer.currentUser);
+	const history = useHistory();
+	const email = localStorage.getItem("email");
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-
-		console.log(recipe);
 
 		const response = await axios.post(
 			`http://localhost:8080/api/recipes/add/${recipeName}`,
 			recipe
 		);
-		console.log(response);
+		// console.log(response);
+		history.push(`/recipes/recipeid/${recipeName}`);
 	};
 
 	const handleChange = (event) => {
@@ -54,6 +56,7 @@ const RecipeCreator = () => {
 			instructions,
 			image,
 			description,
+			email: email,
 		});
 	};
 

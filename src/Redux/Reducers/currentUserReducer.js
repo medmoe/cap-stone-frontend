@@ -1,5 +1,5 @@
 const initialState = {
-	currentUser: [],
+	currentUser: {},
 };
 
 const currentUserDucer = (state = initialState, action) => {

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import "./App.css";
 
 import SideNav from "../components/SideNav/SideNavBar.jsx";
@@ -7,14 +9,10 @@ import UserMainFormContainer from "../components/UserForms/userMainFormContainer
 import Routes from "../components/Routes/routes.jsx";
 import { addCookiesAction } from "../Redux/Actions/login";
 import { addCurrentUserToStateAction } from "../Redux/Actions/currentUser";
-import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 const App = () => {
 	const dispatch = useDispatch();
-	const currentUser = useSelector(
-		(state) => state.currentUserReducer.currentUser
-	);
+
 	const isLogin = useSelector((state) => state.isLoginReducer.isLogin);
 	useEffect(async () => {
 		try {
@@ -22,7 +20,6 @@ const App = () => {
 			const response = await axios.get(
 				`http://localhost:8080/api/users/login/${token}`
 			);
-			console.log(response);
 
 			if (response.data.loggedIn === true) {
 				dispatch(addCookiesAction(response.data.loggedIn));

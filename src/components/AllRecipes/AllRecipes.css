@@ -41,3 +41,11 @@ body{
   .container__text {
     flex: 1 1 auto;
   }
+
+  .Dish-Name{
+    cursor: pointer;
+  }
+
+  .Dish-Name:hover{
+    color: white;
+  }

@@ -27,7 +27,6 @@ const FormSignUpHandler = (UseFormSignUpValidation) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let recieveError = await UseFormSignUpValidation(formInfo);
-		localStorage.setItem("name", formInfo.email);
 
 		if (recieveError === undefined) {
 			dispatch(addCurrentUserToStateAction(formInfo));
