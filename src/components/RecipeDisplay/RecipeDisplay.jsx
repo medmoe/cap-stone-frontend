@@ -7,7 +7,7 @@ import "./RecipeDisplay.css";
 const RecipeDisplay = () => {
 	const [recipe, setRecipe] = useState({});
 	const { id } = useParams();
-	const userInfo = useSelector((state) => state.currentUserReducer.currentUser);
+	const email = localStorage.getItem("email");
 
 	useEffect(async () => {
 		const response = await axios.get(
@@ -17,13 +17,16 @@ const RecipeDisplay = () => {
 	}, []);
 
 	const addFavorite = (recipeID) => {
-		let email = userInfo.user;
-		console.log(email);
+		let emails = {
+			email,
+		};
 		axios.post(
 			`http://localhost:8080/api/recipes/add-to-favorite/${recipeID}`,
-			email
+			emails
 		);
 	};
+
+	
 
 	return (
 		<div className="RecipeMainContainer">
