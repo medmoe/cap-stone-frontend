@@ -11,7 +11,7 @@ const RecipeDisplay = () => {
 
 	useEffect(async () => {
 		const response = await axios.get(
-			`http://localhost:8080/api/recipes/recipename/${id}`
+			`https://recipe-board.herokuapp.com/api/recipes/recipename/${id}`
 		);
 		setRecipe(response.data);
 	}, []);
@@ -21,12 +21,10 @@ const RecipeDisplay = () => {
 			email,
 		};
 		axios.post(
-			`http://localhost:8080/api/recipes/add-to-favorite/${recipeID}`,
+			`https://recipe-board.herokuapp.com/api/recipes/add-to-favorite/${recipeID}`,
 			emails
 		);
 	};
-
-	
 
 	return (
 		<div className="RecipeMainContainer">
@@ -44,19 +42,18 @@ const RecipeDisplay = () => {
 
 				<div className="row">
 					<div className="column side">
-						<h2 className = "medium-text">Area</h2>
-						<p className = "small-text">{recipe.area}</p>
+						<h2 className="medium-text">Area</h2>
+						<p className="small-text">{recipe.area}</p>
 					</div>
 
 					<div className="column middle">
-						<h1 className = "medium-text">Ingredients</h1>
-						<p className = "small-text">{recipe.all_ingredients}</p>
-						
+						<h1 className="medium-text">Ingredients</h1>
+						<p className="small-text">{recipe.all_ingredients}</p>
 					</div>
 
 					<div className="column side">
-						<h2 className = "medium-text">Category</h2>
-						<p className = "small-text">{recipe.category}</p>
+						<h2 className="medium-text">Category</h2>
+						<p className="small-text">{recipe.category}</p>
 					</div>
 				</div>
 				<button onClick={() => addFavorite(recipe.id)}>add Favorite</button>

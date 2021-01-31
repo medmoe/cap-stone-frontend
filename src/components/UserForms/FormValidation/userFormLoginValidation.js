@@ -12,11 +12,12 @@ export const UseFormLoginValidation = async (formObject) => {
 	} else if (!/\S+@\S+\.\S+/.test(formObject.email)) {
 		//Check if the email is valid WITH THE "@" If it is not valid, give the errors object the error String
 		errors.email = "Please provide a valid email";
-	}
-	else{
-		const response = await axios.get(`http://localhost:8080/api/users/${formObject.email}`)
-		if(response.data === "email doesn't exist"){
-			errors.email = "Email does not exist"
+	} else {
+		const response = await axios.get(
+			`https://recipe-board.herokuapp.com/api/users/${formObject.email}`
+		);
+		if (response.data === "email doesn't exist") {
+			errors.email = "Email does not exist";
 		}
 	}
 
@@ -31,7 +32,7 @@ export const UseFormLoginValidation = async (formObject) => {
 	axios.defaults.withCredentials = true;
 	if (Object.keys(errors).length === 0 && errors.constructor === Object) {
 		const x = await axios.post(
-			"http://localhost:8080/api/users/login",
+			"https://recipe-board.herokuapp.com/api/users/login",
 			formObject
 		);
 

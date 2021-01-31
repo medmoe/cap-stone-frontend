@@ -18,7 +18,7 @@ const App = () => {
 		try {
 			const token = localStorage.getItem("token");
 			const response = await axios.get(
-				`http://localhost:8080/api/users/login/${token}`
+				`https://recipe-board.herokuapp.com/${token}`
 			);
 
 			if (response.data.loggedIn === true) {

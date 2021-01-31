@@ -12,12 +12,12 @@ const AreaOrCategory = () => {
 	useEffect(async () => {
 		if (type === "category") {
 			const response = await axios.get(
-				`http://localhost:8080/api/recipes/recipecategory/${searchTerm}`
+				`https://recipe-board.herokuapp.com/api/recipes/recipecategory/${searchTerm}`
 			);
 			setAllRecipes(response.data);
 		} else {
 			const response = await axios.get(
-				`http://localhost:8080/api/recipes/recipearea/${searchTerm}`
+				`https://recipe-board.herokuapp.com/api/recipes/recipearea/${searchTerm}`
 			);
 			setAllRecipes(response.data);
 		}

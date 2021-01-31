@@ -15,7 +15,7 @@ const UserProfile = () => {
 	const [recipe, setRecipe] = useState([]);
 	useEffect(async () => {
 		const response = await axios.get(
-			`http://localhost:8080/api/users/session-id/${token}`
+			`https://recipe-board.herokuapp.com/api/users/session-id/${token}`
 		);
 		console.log(response);
 		setUser(response.data[0]);

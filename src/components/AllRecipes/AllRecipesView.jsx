@@ -8,7 +8,9 @@ const AllRecipesView = () => {
 	const history = useHistory();
 
 	useEffect(async () => {
-		const response = await axios.get("http://localhost:8080/api/recipes");
+		const response = await axios.get(
+			"https://recipe-board.herokuapp.com/api/recipes"
+		);
 		console.log("sss", response.data.allRecipes);
 		setAllRecipes(response.data.allRecipes);
 	}, []);

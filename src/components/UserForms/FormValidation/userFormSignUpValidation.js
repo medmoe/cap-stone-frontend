@@ -29,7 +29,7 @@ export const UseFormSignUpValidation = async (formObject) => {
 		error.email = "Please provide a valid email";
 	} else {
 		const x = await axios.get(
-			`http://localhost:8080/api/users/${formObject.email}`
+			`https://recipe-board.herokuapp.com/api/users/${formObject.email}`
 		);
 		console.log(x);
 		if (x.data === "email exist") {
@@ -48,7 +48,7 @@ export const UseFormSignUpValidation = async (formObject) => {
 	if (Object.keys(error).length === 0 && error.constructor === Object) {
 		console.log(formObject);
 		const x = await axios.post(
-			"http://localhost:8080/api/users/register",
+			"https://recipe-board.herokuapp.com/api/users/register",
 			formObject
 		);
 

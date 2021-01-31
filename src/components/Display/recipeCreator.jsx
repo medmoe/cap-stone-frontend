@@ -21,7 +21,7 @@ const RecipeCreator = () => {
 		event.preventDefault();
 
 		const response = await axios.post(
-			`http://localhost:8080/api/recipes/add/${recipeName}`,
+			`https://recipe-board.herokuapp.com/api/recipes/add/${recipeName}`,
 			recipe
 		);
 		// console.log(response);

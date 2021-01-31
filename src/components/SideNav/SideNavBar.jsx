@@ -42,7 +42,7 @@ const SideNavBar = () => {
 	return (
 		<div className="Main-sidebar-container">
 			<div className="Main-sidebar-container-btn">
-				<h1>Logo</h1>
+				<h1>Recipe Board</h1>
 			</div>
 
 			<div className="Main-sidebar-container-btn Main-sidebar-container-group-btn">
