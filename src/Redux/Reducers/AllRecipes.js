@@ -19,9 +19,7 @@ const getAllRecipes = (data) => {
 export const fetchAllRecipes = () => {
 	return async (dispatch) => {
 		try {
-			const posting = await axios.post(
-				"https://recipe-board.herokuapp.com/api/recipes/"
-			);
+			await axios.post("https://recipe-board.herokuapp.com/api/recipes/");
 			const response = await axios.get(
 				"https://recipe-board.herokuapp.com/api/recipes/"
 			);

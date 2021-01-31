@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const addCookiesAction = (payload) => {
 	return {
 		type: "ADD_COOKIES",

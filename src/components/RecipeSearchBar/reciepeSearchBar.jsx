@@ -20,6 +20,7 @@ const RecipeSearchBar = () => {
 
 	const handleSubmitByAreaOrCategory = (e) => {
 		e.preventDefault();
+		console.log(searchByArea);
 		history.push(`/areaorcategoryrecipes/${e.target.name}/${search}`);
 	};
 
@@ -72,22 +73,31 @@ const RecipeSearchBar = () => {
 						handleSubmitByAreaOrCategory={handleSubmitByAreaOrCategory}
 					/>
 				)}
-				
+
 				<div className="buttonContainer">
-					<button className = "searchButtons effect" name="searchName" onClick={handleChangeForm}>
+					<button
+						className="searchButtons effect"
+						name="searchName"
+						onClick={handleChangeForm}
+					>
 						Search By Name
 					</button>
-					<button className = "searchButtons effect" name="searchCategory" onClick={handleChangeForm}>
+					<button
+						className="searchButtons effect"
+						name="searchCategory"
+						onClick={handleChangeForm}
+					>
 						Search By Category
 					</button>
-					<button className = "searchButtons effect" name="searchArea" onClick={handleChangeForm}>
+					<button
+						className="searchButtons effect"
+						name="searchArea"
+						onClick={handleChangeForm}
+					>
 						Search By Area
 					</button>
 				</div>
-
 			</div>
-				
-			
 		</div>
 	);
 };

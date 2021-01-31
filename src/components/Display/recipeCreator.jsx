@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 import "./recipeCreator.css";
 import axios from "axios";
 
@@ -14,13 +13,13 @@ const RecipeCreator = () => {
 	const [description, setDescription] = useState("");
 	const [all_ingredients, setIngredients] = useState({});
 	const [count, setCount] = useState([]);
-	const userInfo = useSelector((state) => state.currentUserReducer.currentUser);
+
 	const history = useHistory();
 	const email = localStorage.getItem("email");
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
-		const response = await axios.post(
+		await axios.post(
 			`https://recipe-board.herokuapp.com/api/recipes/add/${recipeName}`,
 			recipe
 		);

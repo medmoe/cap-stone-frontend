@@ -25,7 +25,7 @@ const AreaOrCategory = () => {
 		}
 
 		fetchData();
-	}, []);
+	});
 
 	const toSingleRecipe = (name) => {
 		history.push(`/recipes/recipeid/${name}`);

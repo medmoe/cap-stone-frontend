@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const addCurrentUserToStateAction = (payload) => {
 	return {
 		type: "ADD_CURRENTUSER",

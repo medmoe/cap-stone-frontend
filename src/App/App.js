@@ -31,7 +31,7 @@ const App = () => {
 			}
 		}
 		fetchData();
-	}, []);
+	});
 
 	return (
 		<div className="Main-Container">
