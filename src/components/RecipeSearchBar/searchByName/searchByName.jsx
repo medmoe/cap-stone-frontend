@@ -6,7 +6,7 @@ const SearchByNameForm = (props) => {
 			<form onSubmit={props.handleSubmitByName}>
 				<div className="theBar">
 					<div className="barHeader">
-						<h1>Let's find your desired recipe by name</h1>
+						<h1 className = "barText">Let's find your desired recipe by name</h1>
 					</div>
 
 					<input
