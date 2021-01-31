@@ -13,6 +13,12 @@ export const UseFormLoginValidation = async (formObject) => {
 		//Check if the email is valid WITH THE "@" If it is not valid, give the errors object the error String
 		errors.email = "Please provide a valid email";
 	}
+	else{
+		const response = await axios.get(`http://localhost:8080/api/users/${formObject.email}`)
+		if(response.data === "email doesn't exist"){
+			errors.email = "Email does not exist"
+		}
+	}
 
 	//Check if the password is empty. If it is empty, give the errors object the error String
 	if (!formObject.password) {
