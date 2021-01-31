@@ -23,6 +23,7 @@ const UserProfile = () => {
 		}
 
 		fetchData();
+		// eslint-disable-next-line
 	}, []);
 
 	return (

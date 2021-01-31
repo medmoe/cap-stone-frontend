@@ -25,7 +25,8 @@ const AreaOrCategory = () => {
 		}
 
 		fetchData();
-	});
+		// eslint-disable-next-line
+	}, []);
 
 	const toSingleRecipe = (name) => {
 		history.push(`/recipes/recipeid/${name}`);

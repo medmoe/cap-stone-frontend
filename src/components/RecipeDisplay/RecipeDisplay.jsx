@@ -17,6 +17,7 @@ const RecipeDisplay = () => {
 			setRecipe(response.data);
 		}
 		fetchData();
+		// eslint-disable-next-line
 	}, []);
 
 	const addFavorite = (recipeID) => {

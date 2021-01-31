@@ -31,7 +31,8 @@ const App = () => {
 			}
 		}
 		fetchData();
-	});
+		// eslint-disable-next-line
+	}, []);
 
 	return (
 		<div className="Main-Container">
