@@ -16,11 +16,9 @@ const RecipeCreator = () => {
 	const [count, setCount] = useState([]);
 	const userInfo = useSelector((state) => state.currentUserReducer.currentUser);
 	const history = useHistory();
-
+	const email = localStorage.getItem("email");
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-
-		console.log(recipe);
 
 		const response = await axios.post(
 			`http://localhost:8080/api/recipes/add/${recipeName}`,
@@ -58,7 +56,7 @@ const RecipeCreator = () => {
 			instructions,
 			image,
 			description,
-			email: userInfo.email,
+			email: email,
 		});
 	};
 
