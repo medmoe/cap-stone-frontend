@@ -14,20 +14,23 @@ const App = () => {
 	const dispatch = useDispatch();
 
 	const isLogin = useSelector((state) => state.isLoginReducer.isLogin);
-	useEffect(async () => {
-		try {
-			const token = localStorage.getItem("token");
-			const response = await axios.get(
-				`https://recipe-board.herokuapp.com/api/users/login/${token}`
-			);
+	useEffect(() => {
+		async function fetchData() {
+			try {
+				const token = localStorage.getItem("token");
+				const response = await axios.get(
+					`https://recipe-board.herokuapp.com/api/users/login/${token}`
+				);
 
-			if (response.data.loggedIn === true) {
-				dispatch(addCookiesAction(response.data.loggedIn));
-				dispatch(addCurrentUserToStateAction(response.data.user));
+				if (response.data.loggedIn === true) {
+					dispatch(addCookiesAction(response.data.loggedIn));
+					dispatch(addCurrentUserToStateAction(response.data.user));
+				}
+			} catch (error) {
+				console.log(error);
 			}
-		} catch (error) {
-			console.log(error);
 		}
+		fetchData();
 	}, []);
 
 	return (

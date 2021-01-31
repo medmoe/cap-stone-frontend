@@ -9,11 +9,14 @@ const RecipeDisplay = () => {
 	const { id } = useParams();
 	const email = localStorage.getItem("email");
 
-	useEffect(async () => {
-		const response = await axios.get(
-			`https://recipe-board.herokuapp.com/api/recipes/recipename/${id}`
-		);
-		setRecipe(response.data);
+	useEffect(() => {
+		async function fetchData() {
+			const response = await axios.get(
+				`https://recipe-board.herokuapp.com/api/recipes/recipename/${id}`
+			);
+			setRecipe(response.data);
+		}
+		fetchData();
 	}, []);
 
 	const addFavorite = (recipeID) => {

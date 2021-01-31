@@ -9,18 +9,22 @@ const AreaOrCategory = () => {
 
 	const { type, searchTerm } = useParams();
 
-	useEffect(async () => {
-		if (type === "category") {
-			const response = await axios.get(
-				`https://recipe-board.herokuapp.com/api/recipes/recipecategory/${searchTerm}`
-			);
-			setAllRecipes(response.data);
-		} else {
-			const response = await axios.get(
-				`https://recipe-board.herokuapp.com/api/recipes/recipearea/${searchTerm}`
-			);
-			setAllRecipes(response.data);
+	useEffect(() => {
+		async function fetchData() {
+			if (type === "category") {
+				const response = await axios.get(
+					`https://recipe-board.herokuapp.com/api/recipes/recipecategory/${searchTerm}`
+				);
+				setAllRecipes(response.data);
+			} else {
+				const response = await axios.get(
+					`https://recipe-board.herokuapp.com/api/recipes/recipearea/${searchTerm}`
+				);
+				setAllRecipes(response.data);
+			}
 		}
+
+		fetchData();
 	}, []);
 
 	const toSingleRecipe = (name) => {

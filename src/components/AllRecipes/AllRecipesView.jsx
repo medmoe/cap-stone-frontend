@@ -7,15 +7,17 @@ const AllRecipesView = () => {
 	const [allRecipes, setAllRecipes] = useState([]);
 	const history = useHistory();
 
-	
 	// axios.post("https://recipe-board.herokuapp.com/api/recipes");
 
-	useEffect(async () => {
-		const response = await axios.get(
-			"https://recipe-board.herokuapp.com/api/recipes"
-		);
-		console.log("sss", response.data.allRecipes);
-		setAllRecipes(response.data.allRecipes);
+	useEffect(() => {
+		async function fetchData() {
+			const response = await axios.get(
+				"https://recipe-board.herokuapp.com/api/recipes"
+			);
+			console.log("sss", response.data.allRecipes);
+			setAllRecipes(response.data.allRecipes);
+		}
+		fetchData();
 	}, []);
 
 	const toSingleRecipe = (name) => {

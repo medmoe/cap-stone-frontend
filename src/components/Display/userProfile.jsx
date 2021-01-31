@@ -13,13 +13,17 @@ const UserProfile = () => {
 	const token = localStorage.getItem("token");
 	const [user, setUser] = useState([]);
 	const [recipe, setRecipe] = useState([]);
-	useEffect(async () => {
-		const response = await axios.get(
-			`https://recipe-board.herokuapp.com/api/users/session-id/${token}`
-		);
-		console.log(response);
-		setUser(response.data[0]);
-		setRecipe(response.data[0].recipes);
+	useEffect(() => {
+		async function fetchData() {
+			const response = await axios.get(
+				`https://recipe-board.herokuapp.com/api/users/session-id/${token}`
+			);
+			console.log(response);
+			setUser(response.data[0]);
+			setRecipe(response.data[0].recipes);
+		}
+
+		fetchData();
 	}, []);
 
 	return (
