@@ -18,17 +18,23 @@
 	box-shadow: 0px 0px 28px 3px #585858;
 	display: grid;
 	grid-template-columns: 500px auto 500px;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .barContainer {
 	grid-column-start: 2;
+	grid-column-end: 4;
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
+	/* grid-template-rows: 1fr 1fr 1fr; */
 }
 
 .theBar {
-	grid-row-start: 2;
+	grid-row-start: 1;
 	text-align: center;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	justify-content: center;
 }
 
 .barHeader {
@@ -42,4 +48,10 @@
 	border-radius: 50px;
 	outline-style: none;
 	font-size: 20px;
+}
+
+.buttonContainer{
+	grid-row-start: 2;
+	grid-column-start: 2;
+	grid-column-end: 4;
 }

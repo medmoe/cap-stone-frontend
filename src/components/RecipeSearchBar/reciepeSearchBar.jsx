@@ -72,7 +72,7 @@ const RecipeSearchBar = () => {
 						handleSubmitByAreaOrCategory={handleSubmitByAreaOrCategory}
 					/>
 				)}
-
+				
 				<div className="buttonContainer">
 					<button name="searchName" onClick={handleChangeForm}>
 						Search By Name
@@ -84,7 +84,10 @@ const RecipeSearchBar = () => {
 						Search By Area
 					</button>
 				</div>
+
 			</div>
+				
+			
 		</div>
 	);
 };
