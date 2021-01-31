@@ -41,22 +41,19 @@ const RecipeDisplay = () => {
 
 				<div className="row">
 					<div className="column side">
-						<h2>More Info</h2>A list of very long ingredients goes here!
-						dcmlpkcmnp mcmqdmcknvj cbqihvivio qfkvofq
+						<h2 className = "medium-text">Area</h2>
+						<p className = "small-text">{recipe.area}</p>
 					</div>
 
 					<div className="column middle">
-						<h1>More Info</h1>
-						It is a long established fact that a reader will be distracted by
-						the readable content of a page when looking at its layout. The point
-						of using Lorem Ipsum is that it has a more-or-less normal
-						distribution of letters, as opposed to using 'Content here, content
-						here',
+						<h1 className = "medium-text">Ingredients</h1>
+						<p className = "small-text">{recipe.all_ingredients}</p>
+						
 					</div>
 
 					<div className="column side">
-						<h2>Ingredients</h2>A list of very long ingredients goes here!
-						dcmlpkcmnp mcmqdmcknvj cbqihvivio qfkvofq
+						<h2 className = "medium-text">Category</h2>
+						<p className = "small-text">{recipe.category}</p>
 					</div>
 				</div>
 				<button onClick={() => addFavorite(recipe.id)}>add Favorite</button>

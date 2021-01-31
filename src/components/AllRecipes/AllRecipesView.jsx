@@ -32,7 +32,7 @@ const AllRecipesView = () => {
 								{result.name}
 							</h2>
 
-							<h2 className="Dish-Desc">{result.category}</h2>
+							<h2 className="Dish-Desc">Category: {result.category}</h2>
 						</div>
 					</div>
 				))

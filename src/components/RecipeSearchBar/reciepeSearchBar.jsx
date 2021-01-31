@@ -74,13 +74,13 @@ const RecipeSearchBar = () => {
 				)}
 				
 				<div className="buttonContainer">
-					<button name="searchName" onClick={handleChangeForm}>
+					<button className = "searchButtons effect" name="searchName" onClick={handleChangeForm}>
 						Search By Name
 					</button>
-					<button name="searchCategory" onClick={handleChangeForm}>
+					<button className = "searchButtons effect" name="searchCategory" onClick={handleChangeForm}>
 						Search By Category
 					</button>
-					<button name="searchArea" onClick={handleChangeForm}>
+					<button className = "searchButtons effect" name="searchArea" onClick={handleChangeForm}>
 						Search By Area
 					</button>
 				</div>

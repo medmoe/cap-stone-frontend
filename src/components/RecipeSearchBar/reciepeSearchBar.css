@@ -1,7 +1,7 @@
 .RecipeSearchBarMainContainer {
 	min-height: 100vh;
-	display: grid;
-	grid-template-rows: 70px auto 70px;
+	/* display: grid;
+	grid-template-rows: 70px auto 70px; */
 
 	background: #6809fa;
 	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
@@ -10,31 +10,41 @@
 }
 
 .RecipeSearchBarMiddleContainer {
-	grid-row-start: 2;
+	/* grid-row-start: 2; */
 	border-radius: 55px;
 	width: 95%;
+	height: 90%;
 	margin-left: 50px;
 	background: linear-gradient(5deg, #556270, #c44d58);
 	box-shadow: 0px 0px 28px 3px #585858;
-	display: grid;
+	
+	/* display: grid;
 	grid-template-columns: 500px auto 500px;
 	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr; */
+	padding-top: 15%;
+	margin-top: 3%;
 }
 
 .barContainer {
-	grid-column-start: 2;
-	grid-column-end: 4;
-	display: grid;
+	/* grid-column-start: 2;
+	grid-column-end: 4; */
+	/* display: grid; */
 	/* grid-template-rows: 1fr 1fr 1fr; */
+	/* grid-row-start: 1; */
+	margin-top: 10%;
+}
+.barText{
+	margin-left: 18%;
+	margin-right: auto;
 }
 
 .theBar {
-	grid-row-start: 1;
+	/* grid-row-start: 1;
 	text-align: center;
 	grid-column-start: 3;
 	grid-column-end: 4;
-	justify-content: center;
+	justify-content: center; */
 }
 
 .barHeader {
@@ -48,10 +58,37 @@
 	border-radius: 50px;
 	outline-style: none;
 	font-size: 20px;
+	margin-left: 6%;
 }
 
 .buttonContainer{
-	grid-row-start: 2;
+	/* grid-row-start: 2;
 	grid-column-start: 2;
-	grid-column-end: 4;
+	grid-column-end: 4; */
+	display:inline-block;
+	padding-left: 20%;
+}
+
+.searchButtons{
+	border: none;
+  	color: white;
+  	padding: 16px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+  	transition-duration: 0.4s;
+  	cursor: pointer;
+}
+
+.effect{
+	background-color: white;
+  	color: black;
+	border: 2px solid #e7e7e7;
+}
+
+
+.effect:hover{
+	background-color: #da5c72;
 }
