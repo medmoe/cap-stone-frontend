@@ -7,6 +7,9 @@ const AllRecipesView = () => {
 	const [allRecipes, setAllRecipes] = useState([]);
 	const history = useHistory();
 
+	
+	// axios.post("https://recipe-board.herokuapp.com/api/recipes");
+
 	useEffect(async () => {
 		const response = await axios.get(
 			"https://recipe-board.herokuapp.com/api/recipes"
