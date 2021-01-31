@@ -17,10 +17,10 @@ const RecipeDisplay = () => {
 	}, []);
 
 	const addFavorite = (recipeID) => {
-		let email = userInfo.email;
-
+		let email = userInfo.user;
+		console.log(email);
 		axios.post(
-			`http://localhost:8080/api/recipes/add/to-favorite${recipeID}`,
+			`http://localhost:8080/api/recipes/add-to-favorite/${recipeID}`,
 			email
 		);
 	};

@@ -1,4 +1,7 @@
 import axios from "axios";
+import { store } from "../../../index";
+import { addCurrentUserToStateAction } from "../../../Redux/Actions/currentUser";
+import { addCookiesAction } from "../../../Redux/Actions/login";
 
 export const UseFormSignUpValidation = async (formObject) => {
 	let error = {};
@@ -42,6 +45,8 @@ export const UseFormSignUpValidation = async (formObject) => {
 		);
 		console.log(x.data);
 		localStorage.setItem("token", x.data.sessionID);
+		store.dispatch(addCookiesAction(x.data.loggedIn));
+		store.dispatch(addCurrentUserToStateAction(x.data.user));
 	} else {
 		return error;
 	}

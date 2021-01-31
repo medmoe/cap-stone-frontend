@@ -19,8 +19,8 @@ const UserProfile = () => {
 				<div className="userProfileUser">
 					<div className="userProfileImage"></div>
 					<div className="userProfileUserNameContainer">
-						{/* <h2>{currentUserInfo.first_name}</h2>
-						<h2>{currentUserInfo.last_name}</h2> */}
+						<h2>{currentUserInfo.user.first_name}</h2>
+						<h2>{currentUserInfo.user.last_name}</h2>
 						<h2>Today's date </h2>
 						<h3>{dataStr}</h3>
 					</div>
