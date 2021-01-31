@@ -36,19 +36,31 @@ const UserProfile = () => {
 				</div>
 				<div className="userProfileData">
 					{recipe[2] ? (
-						<div>
-							<FavoriteRecipe recipe={recipe[0]} />
-							<FavoriteRecipe recipe={recipe[1]} />
-							<FavoriteRecipe recipe={recipe[2]} />
+						<div className="Allthree">
+							<div className="one">
+								<FavoriteRecipe recipe={recipe[0]} />
+							</div>
+							<div className="two">
+								<FavoriteRecipe recipe={recipe[1]} />
+							</div>
+							<div className="three">
+								<FavoriteRecipe recipe={recipe[2]} />
+							</div>
 						</div>
 					) : recipe[1] ? (
-						<div>
-							<FavoriteRecipe recipe={recipe[0]} />
-							<FavoriteRecipe recipe={recipe[1]} />
+						<div className="Alltwo">
+							<div className="one">
+								<FavoriteRecipe recipe={recipe[0]} />
+							</div>
+							<div className="two">
+								<FavoriteRecipe recipe={recipe[1]} />
+							</div>
 						</div>
 					) : recipe[0] ? (
-						<div>
-							<FavoriteRecipe recipe={recipe[0]} />{" "}
+						<div className="AllOne">
+							<div className="one">
+								<FavoriteRecipe recipe={recipe[0]} />
+							</div>
 						</div>
 					) : null}
 				</div>

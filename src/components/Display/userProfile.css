@@ -42,15 +42,53 @@
 
 .userProfileData {
 	border-radius: 0 55px 55px 0;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
 }
 
-.items {
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	margin-top: 35px;
+.Allthree {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	border: 2px solid red;
+}
+
+.Alltwo {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.AllOne {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.one {
+	grid-column-start: 1;
+	width: 400px;
+	text-align: center;
+	background: white;
+	border-radius: 55px;
+	margin-top: 50px;
 	margin-left: 50px;
-	border-radius: 20px;
-	height: 90%;
-	width: 80%;
+	font-size: 12px;
+}
+
+.two {
+	grid-column-start: 2;
+	width: 400px;
+	text-align: center;
+	background: white;
+	border-radius: 55px;
+	margin-top: 50px;
+	margin-left: 50px;
+	font-size: 12px;
+}
+
+.three {
+	grid-column-start: 3;
+	width: 400px;
+	text-align: center;
+	background: white;
+	border-radius: 55px;
+	margin-top: 50px;
+	margin-left: 50px;
+	font-size: 12px;
 }

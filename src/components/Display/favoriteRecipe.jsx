@@ -1,13 +1,13 @@
 import React from "react";
+import "./favoriteRecipe.css";
 
 const FavoriteRecipe = (props) => {
 	return (
-		<div>
+		<div className="recipe-container">
 			<h1>{props.recipe.name}</h1>
-			<h1>{props.recipe.image}</h1>
+			<img className="recipeImg" src={props.recipe.image} />
 			<h1>{props.recipe.area}</h1>
 			<h1>{props.recipe.category}</h1>
-			<h1>{props.recipe.all_ingredients}</h1>
 		</div>
 	);
 };

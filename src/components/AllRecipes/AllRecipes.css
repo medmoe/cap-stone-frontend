@@ -1,51 +1,30 @@
-body{
-  background: #6809fa;
-	background: -webkit-linear-gradient(top right, #6809fa, #da5c72);
-	background: -moz-linear-gradient(top right, #6809fa, #da5c72);
-	background: linear-gradient(to bottom left, #6809fa, #da5c72);
-
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.AllRecipesContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 50px;
 }
-.AllRecipesContainer{
-  overflow: auto;
-  max-height: 100vh;
-}
-
-.RecipeMainText{
-    font-size: 60px;
-    
-}
-
 
 .container {
-    border: 3px solid blue;
-    padding: 20px 40px 40px;
-    max-width: 640px;
-    max-height: 230px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-  }
+	height: 450px;
+	border-radius: 50px;
+	box-shadow: 0px 0px 15px 7px rgba(255, 227, 229, 0.86);
+	background: rgb(238, 174, 202);
+	background: radial-gradient(
+		circle,
+		rgba(238, 174, 202, 1) 0%,
+		rgba(148, 187, 233, 1) 100%
+	);
+	text-align: center;
+	margin-top: 50px;
+	margin-left: 50px;
+}
 
-  .container__image {
-    margin: 20px 30px 0 0;
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    align-self: flex-start;
-  }
+.container__image {
+	width: 50%;
+	margin-top: 50px;
+}
 
-  .container__text {
-    flex: 1 1 auto;
-  }
-
-  .Dish-Name{
-    cursor: pointer;
-  }
-
-  .Dish-Name:hover{
-    color: white;
-  }
+.Dish-Name {
+	margin-top: 10px;
+	cursor: pointer;
+}
