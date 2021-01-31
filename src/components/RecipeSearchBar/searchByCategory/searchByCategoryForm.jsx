@@ -6,7 +6,7 @@ const SearchByCategoryForm = (props) => {
 			<form name="category" onSubmit={props.handleSubmitByAreaOrCategory}>
 				<div className="theBar">
 					<div className="barHeader">
-						<h1>Let's find your desired recipe by category</h1>
+						<h1 className = "barText">Let's find your desired recipe by category</h1>
 					</div>
 
 					<input

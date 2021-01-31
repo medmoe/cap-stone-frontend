@@ -1,12 +1,5 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-.Main-Container {
+.body{
 	height: 100vh;
-
 	background: rgba(255, 164, 7, 1);
 	background: -webkit-linear-gradient(
 		bottom right,
@@ -23,6 +16,17 @@
 		rgba(255, 164, 7, 1),
 		rgba(117, 35, 218, 1)
 	);
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.Main-Container {
+	
+
+	
 }
 
 .Main-ContainerWithSideNav {

@@ -4,6 +4,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { remoteCookiesAction } from "../../Redux/Actions/login";
+import RecipeBoardLogo from "./RecipeBoardLogo.png"
+
 
 const SideNavBar = () => {
 	const history = useHistory();
@@ -42,7 +44,8 @@ const SideNavBar = () => {
 	return (
 		<div className="Main-sidebar-container">
 			<div className="Main-sidebar-container-btn">
-				<h1>Recipe Board</h1>
+				{/* <h1>Recipe Board</h1> */}
+				<img src = {RecipeBoardLogo} className = "logo"/>
 			</div>
 
 			<div className="Main-sidebar-container-btn Main-sidebar-container-group-btn">

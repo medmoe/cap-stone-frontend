@@ -47,7 +47,7 @@
 .Allthree {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	border: 2px solid red;
+	/* border: 2px solid red; */
 }
 
 .Alltwo {
